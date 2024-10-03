@@ -14,7 +14,7 @@
 
 (Escribirlas)
 
-
+https://docs.google.com/document/d/1RYQ1iomeZujgwxj9Z9oc80zqkUDLYbBaMlSs396v_CU/edit?usp=sharing
 ## Otros
 
 - Curso/Facultad
