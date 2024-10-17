@@ -2,7 +2,7 @@
 
 ## Equipo de desarrollo
 
-- Alguien
+- Santiago Siclari
 - Persona
 - etc.
 
@@ -12,7 +12,16 @@
 
 ## Reglas de Juego / Instrucciones
 
-(Escribirlas)
+Opciones de juego multijugador:
+Chef 1:
+  - Movimiento mediante flechas.
+  - Cortar con la tecla C.
+  - Interactuar con la tecla Space.
+//Falta chef 2
+Chef 2:
+  - Movimiento mediante teclas w(arriba), a(izquierda), d(derecha) y s(abajo).
+  - Cortar con la tecla N.
+  - Interactuar con la tecla M.
 
 https://docs.google.com/document/d/1RYQ1iomeZujgwxj9Z9oc80zqkUDLYbBaMlSs396v_CU/edit?usp=sharing
 ## Otros
