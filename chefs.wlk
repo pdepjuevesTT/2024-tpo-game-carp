@@ -9,7 +9,7 @@ import wollok.game.*
 } */
 
 object chef{
-    method image() = "chef.png"
-
-    method position() = game.center()
+    var property position = game.center()
+    
+    method image() = "chef1.png"
 }

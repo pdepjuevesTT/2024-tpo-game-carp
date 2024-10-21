@@ -7,7 +7,6 @@ import nivel.*
 
 
 
-
 program overcooked{
     nivel.configurate()
     game.start()
