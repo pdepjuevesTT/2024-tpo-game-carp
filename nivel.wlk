@@ -28,14 +28,12 @@ object nivel {
 
         //VISUALES
         game.addVisualCharacter(chef)
-        game.addVisualCharacter(chef2)
+        game.addVisual(chef2)
 
         //KEYBOARD
         //Chef 1
-        keyboard.up().onPressDo { chef.move(chef.position().up(1)) }
-	    keyboard.down().onPressDo { chef.move(chef.position().down(1)) }
-	    keyboard.left().onPressDo { chef.move(chef.position().left(1)) }
-	    keyboard.right().onPressDo { chef.move(chef.position().right(1)) }
+	    keyboard.left().onPressDo { chef.izquierda() }
+	    keyboard.right().onPressDo { chef.derecha() }
         //keyboard.shift().onPressDo{chef1.interactuar()}
         //keyboard.c().onPressDo{chef1.tomar()}
 
