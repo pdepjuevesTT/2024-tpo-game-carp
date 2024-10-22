@@ -1,15 +1,8 @@
 //Archvio para chef, tipos de chefs
 import wollok.game.*
-/* class Chef{
+class Chef{
     var property dinero = 0
-
-    method tomarPedidos(){}
-
-    method entregarPedido(){}
-} */
-
-object chef{
-    var property position = game.at(7,5)
+    var property position
     var direccion = true
 
     method izquierda() {
@@ -19,7 +12,11 @@ object chef{
     method derecha() {
         direccion = true
     }
-    
+
+    method tomarPedidos(){}
+
+    method entregarPedido(){}
+
     method image() {
         if (direccion) {
             return "chef1.png"
@@ -27,16 +24,14 @@ object chef{
         else
         {
             return "chef2.png"
-        }
-    
+        }    
     }
-}
-object chef2 {
-    var property position = game.at(21,5)
 
     method move(nuevaPosicion){
-        self.position(nuevaPosicion)
-    }
+       self.position(nuevaPosicion)
+   }
+} 
 
-    method image() = "chef1.png"
-}
+const chef1 = new Chef(position = game.at(7,5))
+
+const chef2 = new Chef(position = game.at(21,5))
