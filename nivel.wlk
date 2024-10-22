@@ -27,8 +27,7 @@ object nivel {
         game.addVisual(basura) 
         
         //VISUALES
-        game.addVisualCharacter(chef)
-
-        
+        game.addVisualCharacter(chef1)
+        game.addVisualCharacter(chef2)
     }
 }
