@@ -1,0 +1,15 @@
+Objetivos: 
+-Colocar mesadas de frente
+-Hacer las 5 mesasadas con sus ingredientes (carne, pan, papa, lechuga y tomate)
+-Colocar las 5 mesaadas
+-Hacer los muros
+-Colocar los muros
+-Hacer el resto de muebles y colocarlos ...
+-Reducir tamaño de los personajes (a 1/4 probablemente)
+-Hacer generarPedidos (aleatorios) 
+-Hacer que se muestre generarPedidos en la parte superior con su respectiva imagen (hamburguesa + papas, bife + papas, hamburguesa sola, bife + ensalada)
+-Interactuar con las mesadas (poder agarrar los ingredientes)
+-Hacer menu para seleccionar personajes
+
+-Y mas objetivos...
+-Cosas de polimorfismo, herencias y bla bla...
