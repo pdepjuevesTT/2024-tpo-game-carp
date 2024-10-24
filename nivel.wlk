@@ -11,6 +11,12 @@ object nivel {
         game.boardGround("piso4.jpg")
 
         //MUEBLES
+        game.addVisual(mesadaSimpleFrente1)
+        game.addVisual(mesadaSimpleFrente2)
+        game.addVisual(mesadaSimpleFrente3)
+        game.addVisual(mesadaSimple1)
+        game.addVisual(mesadaSimple2)
+        game.addVisual(mesadaSimple3)
         game.addVisual(muebleCTabla1)
         game.addVisual(muebleCTabla2)
         game.addVisual(muebleCTabla3)
@@ -40,10 +46,8 @@ object nivel {
         //Chef 2
         keyboard.w().onPressDo { chef2.move(chef2.position().up(1)) }
 	    keyboard.s().onPressDo { chef2.move(chef2.position().down(1)) }
-	    keyboard.a().onPressDo { chef2.move(chef2.position().left(1)) 
-                                chef2.izquierda()}
-	    keyboard.d().onPressDo { chef2.move(chef2.position().right(1))
-                                chef2.derecha()}
+	    keyboard.a().onPressDo { chef2.move(chef2.position().left(1)) chef2.izquierda()}
+	    keyboard.d().onPressDo { chef2.move(chef2.position().right(1)) chef2.derecha()}
         //keyboard.slash().onPressDo{chef2.interactuar()}
         //keyboard.num0().onPressDo{chef2.tomar()}
     }
