@@ -8,7 +8,7 @@ object nivel {
         game.title("Overcooked")
         game.height(14)
         game.width(30)
-        game.boardGround("piso3.png")
+        game.boardGround("piso4.jpg")
 
         //MUEBLES
         game.addVisual(muebleCTabla1)
