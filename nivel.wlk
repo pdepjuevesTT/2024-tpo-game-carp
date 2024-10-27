@@ -6,18 +6,52 @@ object nivel {
     method configurate(){
         //CONFIG
         game.title("Overcooked")
-        game.height(14)
-        game.width(30)
+        game.height(20)
+        game.width(40)
+        game.cellSize(40)
         game.boardGround("piso4.jpg")
 
-        //MUEBLES
+        //MUEBLES        
+         game.addVisual(mesadaSimple1)    
+        game.addVisual(mesadaSimple2)
+        game.addVisual(mesadaSimple3)
+        game.addVisual(mesadaSimple4)
+        game.addVisual(mesadaSimple5)
+        game.addVisual(mesadaSimple6)
+        game.addVisual(mesadaSimple7)
+        game.addVisual(mesadaSimple8)
+        game.addVisual(mesadaSimple9)
+        game.addVisual(mesadaSimple10)
+        game.addVisual(mesadaSimple11)
+        game.addVisual(mesadaSimple12)
+        game.addVisual(mesadaSimple13)
+        game.addVisual(mesadaSimple14)
+        game.addVisual(mesadaSimple15)
+        game.addVisual(mesadaSimple16)
+        game.addVisual(mesadaSimple17)
+        game.addVisual(mesadaSimple18)
+  
         game.addVisual(mesadaSimpleFrente1)
         game.addVisual(mesadaSimpleFrente2)
         game.addVisual(mesadaSimpleFrente3)
-        game.addVisual(mesadaSimple1)
-        game.addVisual(mesadaSimple2)
-        game.addVisual(mesadaSimple3)
-        game.addVisual(muebleCTabla1)
+        game.addVisual(mesadaSimpleFrente4)
+        game.addVisual(mesadaSimpleFrente5)
+
+        game.addVisual(mesaConSarten1)
+        game.addVisual(mesaConSarten2)
+        game.addVisual(mesaConSarten3)
+        game.addVisual(mesaConSarten4)
+
+        game.addVisual(mesaLechuga)
+        game.addVisual(mesaPan)
+        game.addVisual(mesaCarne)
+        game.addVisual(mesaTomate)
+
+        game.addVisual(pileta)
+
+
+
+        /*game.addVisual(muebleCTabla1)
         game.addVisual(muebleCTabla2)
         game.addVisual(muebleCTabla3)
         game.addVisual(muebleCTabla4)
@@ -29,7 +63,7 @@ object nivel {
         game.addVisual(mesadaCPuertas6)
         game.addVisual(mesadaCPuertas7)
         game.addVisual(mesadaCPuertas8)
-        game.addVisual(mesadaCPuertas9)
+        game.addVisual(mesadaCPuertas9)*/
         game.addVisual(basura)
 
         //VISUALES

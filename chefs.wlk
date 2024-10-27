@@ -32,6 +32,6 @@ class Chef{
    }
 } 
 
-const chef1 = new Chef(position = game.at(7,5))
+const chef1 = new Chef(position = game.at(7,8))
 
-const chef2 = new Chef(position = game.at(21,5))
+const chef2 = new Chef(position = game.at(27,8))
