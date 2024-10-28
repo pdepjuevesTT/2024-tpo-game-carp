@@ -4,6 +4,7 @@ class Chef{
     var property dinero = 0
     var property position
     var direccion = true
+    var objetoTransportado = false
 
     method izquierda() {
         direccion = false
@@ -29,6 +30,10 @@ class Chef{
 
     method move(nuevaPosicion){
        self.position(nuevaPosicion)
+   }
+
+   method tomarObjeto(_objeto){
+        objetoTransportado = _objeto
    }
 } 
 

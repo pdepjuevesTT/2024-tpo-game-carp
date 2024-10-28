@@ -12,7 +12,7 @@ class MesasSimples{
     //Apoyar plato
 }
 
-class MesadaSimpleFrente {
+class MesadaSimpleFrente inherits MesasSimples{
     method image() = "mesadaSimpleFrente1.png"
     const property position
 }
@@ -22,7 +22,7 @@ const mesadaSimpleFrente2 = new MesadaSimpleFrente(position = game.at(19,12))
 const mesadaSimpleFrente3 = new MesadaSimpleFrente(position = game.at(22,12))
 const mesadaSimpleFrente4 = new MesadaSimpleFrente(position = game.at(13,15))
 const mesadaSimpleFrente5 = new MesadaSimpleFrente(position = game.at(6,15))
-
+const mesadaSimple19 = new MesadaSimpleFrente(position = game.at(3,15))
 
 //Mesadas Simples
 class MesadaSimple {
@@ -68,10 +68,10 @@ class MesaDeIngrediente {
     //Agarrar ingrediente
 }
 
-const mesaLechuga = new MesaDeIngrediente(imagen = "mesaLechuga.png", position = game.at(1,7))
-const mesaPan = new MesaDeIngrediente(imagen = "mesaPan.png", position = game.at(2,9))
-const mesaCarne = new MesaDeIngrediente (imagen = "mesaCarne.png", position = game.at(3,11))
-const mesaTomate = new MesaDeIngrediente (imagen = "mesaTomate.png", position = game.at(4,13))
+const mesaLechuga = new MesaDeIngrediente(imagen = "mesaLechuga4.png", position = game.at(0,7))
+const mesaPan = new MesaDeIngrediente(imagen = "mesaPan5.png", position = game.at(1,9))
+const mesaCarne = new MesaDeIngrediente (imagen = "mesaCarne2.png", position = game.at(2,11))
+const mesaTomate = new MesaDeIngrediente (imagen = "mesaTomate1.png", position = game.at(3,13))
 
 //Pileta
 object pileta {
