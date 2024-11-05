@@ -26,6 +26,10 @@ Chef 2:
   - Interactuar con la tecla -(guion).
 
 https://docs.google.com/document/d/1RYQ1iomeZujgwxj9Z9oc80zqkUDLYbBaMlSs396v_CU/edit?usp=sharing
+
+Menu de Seleccion de Personajes (falta hacerlo):
+https://drive.google.com/drive/folders/1Th5-mr6TTr1QZ_jLsEBoaF-SfDsacOol?usp=drive_link
+
 ## Otros
 
 - Curso/Facultad
