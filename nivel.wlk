@@ -124,7 +124,7 @@ object nivel {
         })
 
         //CORTAR INGREDIENTES
-        game.whenCollideDo(chef1, { mesa => 
+        game.whenCollideDo(chef1, { mesa =>
             if (mesasConCuchillos.contains(mesa) && (ingredientesCortables.contains(chef1.objetoTransportado()))){
                 chef1.objetoTransportado().cortar()
             }
@@ -132,10 +132,18 @@ object nivel {
 
         //AGARRAR PLATO
         game.whenCollideDo(chef1, { plato =>
-            if(platos.contains(plato)){
+            if(platos.contains(plato) && chef1.objetoTransportado() == null){
             chef1.tomarObjeto(plato)
             }
         })
+        //PONER INGREDIENTES EN PLATO
+        game.whenCollideDo(chef1, { elemento => if(elemento == Plato && chef1.objetoTransportado() != null){
+            Plato.agregarIngrediente(chef1.objetoTransportado())
+            game.say(chef1, "Lo deje en el plato!")
+            chef1.objetoTransportado().position(Plato.position())//posicion del objeto en la del plato
+            game.addVisual(chef1.objetoTransportado())
+            chef1.quitarObjeto()
+        }})
 
     }
 }
@@ -143,15 +151,14 @@ object nivel {
 class Movimiento{
     var property imagen
     method image() = imagen
-    var property position 
+    var property position
     const movilidad
 
     method move(nuevaPosicion){
         self.position(nuevaPosicion)
     }
-
     method configurate(){
-        
+
         if(movilidad == "flechas"){
             keyboard.up().onPressDo { self.move(self.position().up(1)) }
 	        keyboard.down().onPressDo { self.move(self.position().down(1)) }

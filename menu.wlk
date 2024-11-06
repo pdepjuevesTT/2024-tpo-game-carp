@@ -49,33 +49,57 @@ class IngredientesCortables inherits Ingredientes {
     }
 }
 
+class IngredientesCocinables inherits Ingredientes{
+    var property crudo = true
+    var property tiempoCoccion
+    var property imagenCocinada
+    var property imagenQuemada
+
+    method cocinar(){
+        if(self.cocinar().start() < tiempoCoccion && crudo){ //que arranque el tiempo cuando empieza a cocinar
+            imagen = imagenCocinada
+            game.addVisual(self)
+        } else{
+            imagen = imagenQuemada
+        }
+
+    }
+}
 
 
-const pan = new Ingredientes(imagen = "panChiquito.png", 
+
+const pan = new Ingredientes(imagen = "panChiquito.png",
                             position = game.at(1,9),
                             movilidad = "flechas")
 
 
-const lechuga = new IngredientesCortables(imagen = "lechugaChiquita.png", 
+const lechuga = new IngredientesCortables(imagen = "lechugaChiquita.png",
                                          imagenCortada = "lechugaCortada1.png",
-                                         position = game.at(0,7), 
+                                         position = game.at(0,7),
                                          movilidad = "flechas")
 
-const tomate = new IngredientesCortables(imagen = "tomateChiquito.png", 
+const tomate = new IngredientesCortables(imagen = "tomateChiquito.png",
                                         imagenCortada = "tomateCortado1.png",
                                         position = game.at(3,13),
                                         movilidad = "flechas")
 
-const carne = new IngredientesCortables(imagen = "carne.png", 
+const carne = new IngredientesCortables(imagen = "carne.png",
                                        imagenCortada = "carneChiquita.png",
-                                       position = game.at(2,11), 
+                                       position = game.at(2,11),
                                        movilidad = "flechas")
 
 const ingredientesCortables = [lechuga, tomate, carne]
 
 class Plato inherits Movimiento{
-    //method completo(menu) = self.emplatado().all(menu.ingredientes())
+    var property emplatado = #{} //ingredientes que contiene un plato
+
+    method completo(menu) = self.emplatado().all(menu.ingredientes())
+
+    method agregarIngrediente(ingrediente){
+        emplatado.add(ingrediente)
+    }
 }
+
 
 const plato1 = new Plato(imagen = "plato2.png",
                         position = game.at(5,5),
