@@ -113,10 +113,10 @@ object pileta {
 }
 
 // BASURA
-/*object basura{
+object basura{
     method image() = "basura1.png"
     method position() = game.at(0,2)
-}*/
+}
 
 
 
