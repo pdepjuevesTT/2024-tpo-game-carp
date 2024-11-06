@@ -10,9 +10,10 @@ object nivel {
         game.height(20)
         game.width(40)
         game.cellSize(40)
-        game.boardGround("piso4.jpg")
+        game.boardGround("piso5.png")
 
-        //MUEBLES
+        // MUEBLES
+
         //MESADAS SIMPLES
         game.addVisual(mesadaSimple1)    
         game.addVisual(mesadaSimple2)
@@ -33,6 +34,20 @@ object nivel {
         game.addVisual(mesadaSimple17)
         game.addVisual(mesadaSimple18)
         game.addVisual(mesadaSimple19)
+        game.addVisual(mesadaSimple20)
+        game.addVisual(mesadaSimple21)
+        game.addVisual(mesadaSimple22)
+        game.addVisual(mesadaSimple23)
+        game.addVisual(mesadaSimple24)
+        game.addVisual(mesadaSimple25)
+        game.addVisual(mesadaSimple26)
+        game.addVisual(mesadaSimple27)
+        game.addVisual(mesadaSimple28)
+        game.addVisual(mesadaSimple29)     
+        game.addVisual(mesadaSimple30)
+        game.addVisual(mesadaSimple31)    
+        game.addVisual(mesadaSimple32)
+        game.addVisual(mesadaSimple33)
   
         //MESADAS SIMPLES DE FRENTE
         game.addVisual(mesadaSimpleFrente1)
@@ -40,12 +55,15 @@ object nivel {
         game.addVisual(mesadaSimpleFrente3)
         game.addVisual(mesadaSimpleFrente4)
         game.addVisual(mesadaSimpleFrente5)
+	game.addVisual(mesadaSimpleFrente6)
+        game.addVisual(mesadaSimpleFrente7)
+        game.addVisual(mesadaSimpleFrente8)
+
 
         //MESAS CON SARTEN
         game.addVisual(mesaConSarten1)
         game.addVisual(mesaConSarten2)
         game.addVisual(mesaConSarten3)
-        game.addVisual(mesaConSarten4)
 
         //MESAS DE INGREDIENTES
         game.addVisual(mesaLechuga)
@@ -60,7 +78,7 @@ object nivel {
         game.addVisual(pileta)
 
         //BASURA
-        game.addVisual(basura)
+        //game.addVisual(basura)
 
         //CHEFS
         game.addVisual(chef1)
