@@ -9,5 +9,10 @@ import nivel.*
 
 program overcooked{
     nivel.configurate()
+    pan.configurate()
+    lechuga.configurate()
+    carne.configurate()
+    tomate.configurate()
+
     game.start()
 }

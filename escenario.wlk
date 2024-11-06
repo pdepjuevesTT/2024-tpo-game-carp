@@ -1,12 +1,6 @@
 //Archivo para niveles
 import wollok.game.*
 
-/*object sarten{
-     method image() = "sarten.jpg"
-    var property position = game.origin() 
-}*/
-
-
 //Mesadas Simples Frente
 class MesasSimples{
     //Apoyar plato
@@ -72,6 +66,13 @@ const mesaLechuga = new MesaDeIngrediente(imagen = "mesaLechuga4.png", position 
 const mesaPan = new MesaDeIngrediente(imagen = "mesaPan5.png", position = game.at(1,9))
 const mesaCarne = new MesaDeIngrediente (imagen = "mesaCarne2.png", position = game.at(2,11))
 const mesaTomate = new MesaDeIngrediente (imagen = "mesaTomate1.png", position = game.at(3,13))
+
+class MesaConCuchillo {
+    method image() = "mesaConCuchillo1.png"
+    const property position
+}
+
+const mesaConCuchillo1 = new MesaConCuchillo(position = game.at(13,0))
 
 //Pileta
 object pileta {
