@@ -12,7 +12,7 @@ object nivel {
         game.cellSize(40)
         game.boardGround("piso4.jpg")
 
-        //MUEBLES        
+        //MUEBLES
         //MESADAS SIMPLES
         game.addVisual(mesadaSimple1)    
         game.addVisual(mesadaSimple2)
@@ -101,7 +101,7 @@ object nivel {
                     carne.imagen("carne.png")
                     carne.position(game.at(2,11))
                     game.addVisual(carne)
-                
+
                 } else if (elemento == mesaTomate) {
                     game.say(chef1, "tengo un tomate")
                     chef1.tomarObjeto(tomate)
@@ -111,7 +111,7 @@ object nivel {
                 }
             }
         })
-        
+
         //QUITAR OBJETO
         game.whenCollideDo(chef1, { elemento =>
             if (elemento == basura && chef1.objetoTransportado() != null) {
@@ -125,8 +125,15 @@ object nivel {
 
         //CORTAR INGREDIENTES
         game.whenCollideDo(chef1, { mesa => 
-            if (mesasConCuchillos.contains(mesa) && (chef1.objetoTransportado() != null)){
+            if (mesasConCuchillos.contains(mesa) && (ingredientesCortables.contains(chef1.objetoTransportado()))){
                 chef1.objetoTransportado().cortar()
+            }
+        })
+
+        //AGARRAR PLATO
+        game.whenCollideDo(chef1, { plato =>
+            if(platos.contains(plato)){
+            chef1.tomarObjeto(plato)
             }
         })
 

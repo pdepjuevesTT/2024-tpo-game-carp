@@ -4,6 +4,7 @@ import wollok.game.*
 //Mesadas Simples Frente
 class MesasSimples{
     //Apoyar plato
+    
 }
 
 class MesadaSimpleFrente inherits MesasSimples{
