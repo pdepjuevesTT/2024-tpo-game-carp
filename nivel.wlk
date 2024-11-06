@@ -78,7 +78,7 @@ object nivel {
         game.addVisual(pileta)
 
         //BASURA
-        //game.addVisual(basura)
+        game.addVisual(basura)
 
         //CHEFS
         game.addVisual(chef1)
