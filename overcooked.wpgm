@@ -5,14 +5,17 @@ import menu.*
 import escenario.*
 import nivel.*
 
-
-
 program overcooked{
     nivel.configurate()
+
+    chef1.configurate()
+    chef2.configurate()
+
     pan.configurate()
     lechuga.configurate()
     carne.configurate()
     tomate.configurate()
+
 
     game.start()
 }

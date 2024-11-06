@@ -63,34 +63,29 @@ object nivel {
         game.addVisual(basura)
 
         //CHEFS
-        game.addVisualCharacter(chef1)
+        game.addVisual(chef1)
         game.addVisual(chef2)
-
-        //KEYBOARD
         
-        //Chef 1
-	    keyboard.left().onPressDo { chef1.izquierda() }
-	    keyboard.right().onPressDo { chef1.derecha() }
+        //CHEF 1
+	    keyboard.left().onPressDo { chef1.imagen("chef8izq.png") }
+	    keyboard.right().onPressDo { chef1.imagen("chef8der.png") }
         //keyboard.shift().onPressDo{chef1.interactuar()}
         //keyboard.c().onPressDo{chef1.tomar()}
 
 
-        //Chef 2
-        keyboard.w().onPressDo { chef2.move(chef2.position().up(1)) }
-	    keyboard.s().onPressDo { chef2.move(chef2.position().down(1)) }
-	    keyboard.a().onPressDo { chef2.move(chef2.position().left(1)) 
-                                chef2.izquierda()}
-	    keyboard.d().onPressDo { chef2.move(chef2.position().right(1)) 
-                                chef2.derecha()}
+        //CHEF 2
+	    keyboard.a().onPressDo { chef2.cambiarImagen("chef8izq.png") }
+	    keyboard.d().onPressDo { chef2.cambiarImagen("chef8der.png") }
         //keyboard.slash().onPressDo{chef2.interactuar()}
         //keyboard.num0().onPressDo{chef2.tomar()}
 
-        //Tomar ingrediente
+        //AGARRAR INGREDIENTES
         game.whenCollideDo(chef1, {elemento =>
-            if(chef1.getObjeto() == null){
+            if(chef1.objetoTransportado() == null){
                 if (elemento == mesaLechuga) {
                     game.say(chef1, "tengo una lechuga")
                     chef1.tomarObjeto(lechuga)
+                    lechuga.imagen("lechugaChiquita.png")
                     lechuga.position(game.at(0,7))
                     game.addVisual(lechuga)
 
@@ -103,27 +98,35 @@ object nivel {
                 } else if (elemento == mesaCarne) {
                     game.say(chef1, "tengo una carne")
                     chef1.tomarObjeto(carne)
+                    carne.imagen("carne.png")
                     carne.position(game.at(2,11))
                     game.addVisual(carne)
                 
                 } else if (elemento == mesaTomate) {
                     game.say(chef1, "tengo un tomate")
                     chef1.tomarObjeto(tomate)
+                    tomate.imagen("tomateChiquito.png")
                     tomate.position(game.at(3,13))
                     game.addVisual(tomate)
                 }
             }
         })
-
-        //Movimiento de ingredientes
-
         
-        //Quitar objeto
+        //QUITAR OBJETO
         game.whenCollideDo(chef1, { elemento =>
-            if (elemento == basura && chef1.getObjeto() != null) {
+            if (elemento == basura && chef1.objetoTransportado() != null) {
                 game.say(chef1, "no tengo nada")
-                game.removeVisual(chef1.getObjeto())
+                game.removeVisual(chef1.objetoTransportado())
+                chef1.objetoTransportado().sinPreparar(true)
+                //chef1.objetoTransportado().cortado(false)
                 chef1.quitarObjeto()
+            }
+        })
+
+        //CORTAR INGREDIENTES
+        game.whenCollideDo(chef1, { mesa => 
+            if (mesasConCuchillos.contains(mesa) && (chef1.objetoTransportado() != null)){
+                chef1.objetoTransportado().cortar()
             }
         })
 
@@ -131,7 +134,7 @@ object nivel {
 }
 
 class Movimiento{
-    const imagen
+    var property imagen
     method image() = imagen
     var property position 
     const movilidad

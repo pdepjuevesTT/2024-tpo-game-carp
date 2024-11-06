@@ -74,6 +74,8 @@ class MesaConCuchillo {
 
 const mesaConCuchillo1 = new MesaConCuchillo(position = game.at(13,0))
 
+const mesasConCuchillos = [mesaConCuchillo1]
+
 //Pileta
 object pileta {
     method image() = "pileta1.png"
