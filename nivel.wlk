@@ -78,7 +78,7 @@ object nivel {
         //BASURA
         game.addVisual(basura)
 
-	//PLATOS
+	    //PLATOS
         game.addVisual(plato1)
         game.addVisual(plato2)
         game.addVisual(plato3)
@@ -159,10 +159,13 @@ object nivel {
 
         //AGARRAR PLATO
         game.whenCollideDo(chef1, { plato =>
-            if(platos.contains(plato) && chef1.objetoTransportado() == null){
+            if(platos.contains(plato) && chef1.objetoTransportado() == null && !plato.enMovimiento()){
                 keyboard.space().onPressDo {
                     chef1.tomarObjeto(plato)
                     plato.configurate()
+                    plato.enMovimiento(true)
+                    game.removeVisual(plato)
+                    game.addVisual(plato)
                 }
             }
         })
@@ -179,6 +182,7 @@ object nivel {
                     game.say(chef1, "Lo deje en el plato!")
                     game.removeVisual(chef1.objetoTransportado())
                     elemento.mostrarPlato()
+                    chef1.objetoTransportado().sinPreparar(true)
                     chef1.quitarObjeto()
                 }
             }
@@ -237,5 +241,23 @@ class Movimiento{
 	            keyboard.d().onPressDo { self.move(self.position().right(1)) }
             }
         }
+    }
+}
+
+class MovimientoObjetos inherits Movimiento{
+    override method configurate(){
+       if(enMovimiento){
+            if(movilidad == "flechas"){
+            	keyboard.up().onPressDo { self.move(chef1.position()) }
+	            keyboard.down().onPressDo { self.move(chef1.position()) }
+	            keyboard.left().onPressDo { self.move(chef1.position()) }
+	            keyboard.right().onPressDo { self.move(chef1.position()) }
+            } else if(movilidad == "wasd"){
+            	keyboard.w().onPressDo { self.move(self.position().up(1)) }
+	            keyboard.s().onPressDo { self.move(self.position().down(1)) }
+	            keyboard.a().onPressDo { self.move(self.position().left(1)) }
+	            keyboard.d().onPressDo { self.move(self.position().right(1)) }
+            }
+        } 
     }
 }

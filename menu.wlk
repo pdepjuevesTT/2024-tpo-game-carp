@@ -83,7 +83,7 @@ const carne = new Hamburguesa (imagen = "carne.png",
                               position = game.at(4,12),
                               movilidad = "flechas")
 
-class Plato inherits Movimiento{
+class Plato inherits MovimientoObjetos{
     var property emplatado = #{} //ingredientes que contiene un plato
 
     method completo(menu) = self.emplatado().all(menu.ingredientes())
@@ -130,22 +130,27 @@ class Plato inherits Movimiento{
 
 const plato1 = new Plato(imagen = "plato2.png",
                         position = game.at(20,2),
-                        movilidad = "flechas")
+                        movilidad = "flechas",
+                        enMovimiento = false)
 
 const plato2 = new Plato(imagen = "plato2.png",
                         position = game.at(22,2),
-                        movilidad = "flechas")
+                        movilidad = "flechas",
+                        enMovimiento = false)
 
 const plato3 = new Plato(imagen = "plato2.png",
                         position = game.at(24,2),
-                        movilidad = "flechas")
+                        movilidad = "flechas",
+                        enMovimiento = false)
 
 const plato4 = new Plato(imagen = "plato2.png",
                         position = game.at(26,2),
-                        movilidad = "flechas")
+                        movilidad = "flechas",
+                        enMovimiento = false)
                         
 const plato5 = new Plato(imagen = "plato2.png",
                         position = game.at(28,4),
-                        movilidad = "flechas")
+                        movilidad = "flechas",
+                        enMovimiento = false)
 
 const platos = [plato1, plato2, plato3, plato4, plato5]

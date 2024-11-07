@@ -30,6 +30,6 @@ class Chef inherits Movimiento{
 
 const chef1 = new Chef(position = game.at(7,8), imagen = "chef8der.png", movilidad = "flechas")
 
-const chef2 = new Chef(position = game.at(27,8), imagen = "chef8izq.png", movilidad = "wasd")
+const chef2 = new Chef(position = game.at(24,8), imagen = "chef8izq.png", movilidad = "wasd")
 
 const chefs = [chef1, chef2]
