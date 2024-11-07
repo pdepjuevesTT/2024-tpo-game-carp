@@ -89,8 +89,8 @@ class MesaDeIngrediente {
 
 const mesaLechuga = new MesaDeIngrediente(imagen = "mesaLechuga.png", position = game.at(4,8))
 const mesaPan = new MesaDeIngrediente(imagen = "mesaPan.png", position = game.at(4,10))
-const mesaCarne = new MesaDeIngrediente (imagen = "mesaCarne.png", position = game.at(4,12))
-const mesaTomate = new MesaDeIngrediente (imagen = "mesaTomate.png", position = game.at(4,14))
+const mesaCarne = new MesaDeIngrediente (imagen = "mesaCarne3.png", position = game.at(4,12))
+const mesaTomate = new MesaDeIngrediente (imagen = "mesaTomate2.png", position = game.at(4,14))
 
 class MesaConCuchillo {
     method image() = "mesaConCuchillo.png"
@@ -111,7 +111,7 @@ object pileta {
 // BASURA
 object basura{
     method image() = "basura.png"
-    method position() = game.at(0,2)
+    method position() = game.at(4,4)
 }
 
 

@@ -69,23 +69,23 @@ class IngredientesCocinables inherits Ingredientes{
 
 
 const pan = new Ingredientes(imagen = "panChiquito.png",
-                            position = game.at(4,8),
+                            position = game.at(4,10),
                             movilidad = "flechas")
 
 
 const lechuga = new IngredientesCortables(imagen = "lechugaChiquita.png",
                                          imagenCortada = "lechugaCortada1.png",
-                                         position = game.at(4,6),
+                                         position = game.at(4,8),
                                          movilidad = "flechas")
 
 const tomate = new IngredientesCortables(imagen = "tomateChiquito.png",
                                         imagenCortada = "tomateCortado1.png",
-                                        position = game.at(4,12),
+                                        position = game.at(4,14),
                                         movilidad = "flechas")
 
 const carne = new IngredientesCortables(imagen = "carne.png",
                                        imagenCortada = "carneChiquita.png",
-                                       position = game.at(4,10),
+                                       position = game.at(4,12),
                                        movilidad = "flechas")
 
 const ingredientesCortables = [lechuga, tomate, carne]
@@ -114,23 +114,23 @@ class Plato inherits Movimiento{
 
 
 const plato1 = new Plato(imagen = "plato2.png",
-                        position = game.at(22,2),
+                        position = game.at(20,2),
                         movilidad = "flechas")
 
 const plato2 = new Plato(imagen = "plato2.png",
-                        position = game.at(24,2),
+                        position = game.at(22,2),
                         movilidad = "flechas")
 
 const plato3 = new Plato(imagen = "plato2.png",
-                        position = game.at(26,2),
+                        position = game.at(24,2),
                         movilidad = "flechas")
 
 const plato4 = new Plato(imagen = "plato2.png",
-                        position = game.at(28,2),
+                        position = game.at(26,2),
                         movilidad = "flechas")
                         
 const plato5 = new Plato(imagen = "plato2.png",
-                        position = game.at(30,2),
+                        position = game.at(28,4),
                         movilidad = "flechas")
 
 const platos = [plato1, plato2, plato3, plato4, plato5]

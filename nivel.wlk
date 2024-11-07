@@ -109,27 +109,27 @@ object nivel {
                     game.say(chef1, "tengo una lechuga")
                     chef1.tomarObjeto(lechuga)
                     lechuga.imagen("lechugaChiquita.png")
-                    lechuga.position(game.at(4,6))
+                    lechuga.position(game.at(4,8))
                     game.addVisual(lechuga)
 
                 } else if (elemento == mesaPan) {
                     game.say(chef1, "tengo un pan")
                     chef1.tomarObjeto(pan)
-                    pan.position(game.at(4,8))
+                    pan.position(game.at(4,10))
                     game.addVisual(pan)
 
                 } else if (elemento == mesaCarne) {
                     game.say(chef1, "tengo una carne")
                     chef1.tomarObjeto(carne)
                     carne.imagen("carne.png")
-                    carne.position(game.at(4,10))
+                    carne.position(game.at(4,12))
                     game.addVisual(carne)
 
                 } else if (elemento == mesaTomate) {
                     game.say(chef1, "tengo un tomate")
                     chef1.tomarObjeto(tomate)
                     tomate.imagen("tomateChiquito.png")
-                    tomate.position(game.at(4,12))
+                    tomate.position(game.at(4,14))
                     game.addVisual(tomate)
                 }
             }
