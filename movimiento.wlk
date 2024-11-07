@@ -18,13 +18,13 @@ class Movimiento{
             if(movilidad == "flechas"){
                 keyboard.up().onPressDo { if(self.position().y()==11 && self.position().x()>=13 && self.position().x()<=18){/*Nada*/} else{ self.move(self.position().up(1))} }
 	            keyboard.down().onPressDo {if(self.position().y()==10 && self.position().x()>=13 && self.position().x()<=18){/*Nada*/} else{ self.move(self.position().down(1))} }
-	            keyboard.left().onPressDo { self.move(self.position().left(1)) }
-                keyboard.right().onPressDo { if(self.position().x()==14 && self.position().y()>=12 && self.position().y()<=9){/*Nada*/} else{ self.move(self.position().right(1))} }
+	            keyboard.left().onPressDo { if(self.position().x()==19 && self.position().y()<10 && self.position().y()>11){/*Nada*/} else{ self.move(self.position().left(1))}  }
+                keyboard.right().onPressDo { if(self.position().x()==13 && self.position().y()<10 && self.position().y()>11){/*Nada*/} else{ self.move(self.position().right(1))} }
             } else if(movilidad == "wasd"){
             	keyboard.w().onPressDo { if(self.position().y()==11 && self.position().x()>=13 && self.position().x()<=18){/*Nada*/} else{ self.move(self.position().up(1))}  }
 	            keyboard.s().onPressDo { if(self.position().y()==10 && self.position().x()>=13 && self.position().x()<=18){/*Nada*/} else{ self.move(self.position().down(1))} }
-	            keyboard.a().onPressDo { self.move(self.position().left(1)) }
-	            keyboard.d().onPressDo { self.move(self.position().right(1)) }
+	            keyboard.a().onPressDo { if(self.position().x()==19 && self.position().y()<10 && self.position().y()>11){/*Nada*/} else{ self.move(self.position().left(1))}  }
+	            keyboard.d().onPressDo { if(self.position().x()==13 && self.position().y()<10 && self.position().y()>11){/*Nada*/} else{ self.move(self.position().right(1))} }
             }
         }
     }

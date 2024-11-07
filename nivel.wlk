@@ -145,10 +145,10 @@ object nivel {
         game.whenCollideDo(chef1, { elemento =>
             if (elemento == basura && chef1.objetoTransportado() != null) {
                 game.say(chef1, "no tengo nada")
-                game.removeVisual(chef1.objetoTransportado())
-                chef1.quitarObjeto()
+                game.removeVisual(chef1.objetoTransportado())                
                 chef1.objetoTransportado().sinPreparar(true)
                 chef1.objetoTransportado().cortado(false)
+                chef1.quitarObjeto()
             }
         })
 
