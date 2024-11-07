@@ -1,16 +1,36 @@
 //Archivo para niveles
 import wollok.game.*
+import chefs.*
+import menu.*
 
 //Mesadas Simples Frente
 class MesasSimples{
+    const property position
+    var property ocupado = false
+
     //Apoyar plato
-    
+    method apoyarPlato(platoMano){
+        if(platos.any{plato => plato == platoMano} && platoMano == chef1.objetoTransportado() && !ocupado){
+            platoMano.position(self.position())
+            game.whenCollideDo(chef1, game.addVisual(platoMano))
+            ocupado = true
+            game.say(self, "Plato apoyado correctamente.")
+            chef1.quitarObjeto()
+        } else if(ocupado){
+            game.say(self, "Estoy ocupada")
+        } else{
+            game.say(self, "No tenes plato!")
+        }
+    }
+
+    method mesadaVacia(){
+        return !ocupado //mesada deberia estar vacia para colocar algo encima
+    }
 }
 
 // MESAS SIMPLES DE FRENTE
 class MesadaSimpleFrente inherits MesasSimples{
     method image() = "mesadaSimpleFrente.png"
-    const property position
 }
 
 //Mesas Simples de Frente ordenadas de izq a der -> de abajo a arriba
@@ -21,6 +41,9 @@ const mesadaSimpleFrente3 = new MesadaSimpleFrente(position = game.at(18,12))
 //y=16
 const mesadaSimpleFrente4 = new MesadaSimpleFrente(position = game.at(6,16))
 const mesadaSimpleFrente5 = new MesadaSimpleFrente(position = game.at(12,16))
+
+const mesadasSimplesFrente = [mesadaSimpleFrente1, mesadaSimpleFrente2, mesadaSimpleFrente3,
+                                mesadaSimpleFrente4, mesadaSimpleFrente5]
 
 //MESADAS SIMPLES
 class MesadaSimple {
@@ -68,6 +91,15 @@ const mesadaSimple28 = new MesadaSimple(position = game.at(14,16))
 const mesadaSimple29 = new MesadaSimple(position = game.at(18,16))
 const mesadaSimple30 = new MesadaSimple(position = game.at(28,16))
 
+const mesadasSimples = [mesadaSimple1, mesadaSimple2, mesadaSimple3, mesadaSimple4, mesadaSimple5,
+    mesadaSimple6, mesadaSimple7, mesadaSimple8, mesadaSimple9, mesadaSimple10,
+    mesadaSimple11, mesadaSimple12, mesadaSimple13, mesadaSimple14, mesadaSimple15,
+    mesadaSimple16, mesadaSimple17, mesadaSimple18, mesadaSimple19, mesadaSimple20,
+    mesadaSimple21, mesadaSimple22, mesadaSimple23, mesadaSimple24, mesadaSimple25,
+    mesadaSimple26, mesadaSimple27, mesadaSimple28, mesadaSimple29, mesadaSimple30]
+
+const todasLasMesadas = mesadasSimples + mesadasSimplesFrente
+
 // MESAS CON SARTEN
 class MesaConSarten {
     method image() = "mesaConSarten.png"
@@ -78,6 +110,8 @@ const mesaConSarten1 = new MesaConSarten(position = game.at(20,16))
 const mesaConSarten2 = new MesaConSarten(position = game.at(22,16))
 const mesaConSarten3 = new MesaConSarten(position = game.at(24,16))
 const mesaConSarten4 = new MesaConSarten(position = game.at(26,16))
+
+const mesasConSarten = [mesaConSarten1, mesaConSarten2, mesaConSarten3, mesaConSarten4]
 
 // MESAS DE INGREDIENTES
 class MesaDeIngrediente {
@@ -113,59 +147,3 @@ object basura{
     method image() = "basura.png"
     method position() = game.at(4,4)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-//Mueables con tabla
-
-class MuebleCTablaDerecha {
-    method image() = "muebleCTabla1.png"
-    const property position
-}
-
-const muebleCTabla1 = new MuebleCTablaDerecha(position = game.at(1,1))
-const muebleCTabla2 = new MuebleCTablaDerecha(position = game.at(1,3))
-const muebleCTabla3 = new MuebleCTablaDerecha(position = game.at(1,5))
-const muebleCTabla4 = new MuebleCTablaDerecha(position = game.at(1,7))
-
-//Mesada con puertas
-
-class MesadaCPuertasDerecha {
-    method image() = "mesadaCPuertas1.png"
-    const property position
-}
-
-const mesadaCPuertas1 = new MesadaCPuertasDerecha(position = game.at(5,1))
-const mesadaCPuertas6 = new MesadaCPuertasDerecha(position = game.at(5,3))
-const mesadaCPuertas7 = new MesadaCPuertasDerecha(position = game.at(5,5))
-const mesadaCPuertas8 = new MesadaCPuertasDerecha(position = game.at(5,7))
-const mesadaCPuertas9 = new MesadaCPuertasDerecha(position = game.at(5,9))
-
-class MesadaCPuertasIzquierda {
-    method image() = "mesadaCPuertas2.png"
-    const property position
-}
-
-const mesadaCPuertas2 = new MesadaCPuertasIzquierda(position = game.at(7,1))
-const mesadaCPuertas3 = new MesadaCPuertasIzquierda(position = game.at(7,3))
-const mesadaCPuertas4 = new MesadaCPuertasIzquierda(position = game.at(7,5))
-const mesadaCPuertas5 = new MesadaCPuertasIzquierda(position = game.at(7,7))
-
-//Basura
-*/

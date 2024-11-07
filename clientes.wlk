@@ -8,14 +8,14 @@ class Clientes{
     method recibirPedido(plato){
         if(plato.completo() //plato con todos los ingredientes de un menu
         && Clientes.hacerPedido().ingredientes() == plato.emplatado()){ //plato con los ingredientes del tipo de cliente
-            Chef.dinero(Clientes.hacerPedido().recompensa())
+            chef1.dinero() + self.hacerPedido().recompensa()
         } else{
             chef1.say(chef1,"Falta x ingrediente")
         }
     }
 
     method eliminarPedido(menu){
-
+        
     }
 }
 

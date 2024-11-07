@@ -14,13 +14,10 @@ class Menu{
     const property recompensa
     const property tiempoDisponible
 
-    //method tiempoLimite(){self.schedule(tiempoDisponible, Clientes.eliminarPedido(self))}//schedule(milliseconds, action)
-
 }
 
 class MenuAdulto inherits Menu{
     override method ingredientes() = #{carne, lechuga, tomate}
-
 }
 
 class MenuJoven inherits Menu{
@@ -33,7 +30,6 @@ class MenuAnciano inherits Menu{
 
 class Ingredientes inherits Movimiento{
     var property sinPreparar = true
-
 }
 
 class IngredientesCortables inherits Ingredientes {
@@ -55,15 +51,13 @@ class IngredientesCocinables inherits Ingredientes{
     var property imagenCocinada
     var property imagenQuemada
 
-    /*method cocinar(){
-        if(self.cocinar().start() < tiempoCoccion && crudo){ //que arranque el tiempo cuando empieza a cocinar
-            imagen = imagenCocinada
-            game.addVisual(self)
-        } else{
-            imagen = imagenQuemada
+    method cocinar(){
+        if(crudo){ //que arranque el tiempo cuando empieza a cocinar
+            crudo = false
+            imagen = imagenCocinada   
         }
 
-    }*/
+    }
 }
 
 
@@ -99,15 +93,21 @@ class Plato inherits Movimiento{
         emplatado.add(ingrediente)
     }
 
-    method mostrarIngrediente(elemento){
-        if (elemento == pan){
+    method mostrarPlato(){
+        if (emplatado == #{pan}){
             imagen = "platoConPan.png"
-        } else if (elemento == lechuga){
+        } else if (emplatado == #{lechuga}){
             imagen = "platoConLechuga.png"
-        } else if (elemento == carne){
+        } else if (emplatado == #{carne}){
             imagen = "platoConCarne.png"
-        } else if (elemento == tomate){
+        } else if (emplatado == #{tomate}){
             imagen = "platoConTomate.png"
+        } else if (emplatado == #{pan, lechuga}){
+            imagen = "panConLechuga.png"
+        } else if (emplatado == #{pan, lechuga, tomate}){
+            imagen = "panConLechugaYTomate.png"
+        } else if (emplatado == #{pan, lechuga, tomate, carne}){
+            imagen = "hamburguesaCompleta.png"
         }
     }
 }

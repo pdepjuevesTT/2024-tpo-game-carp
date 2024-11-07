@@ -90,18 +90,21 @@ object nivel {
         game.addVisual(chef2)
         
         //CHEF 1
-	keyboard.left().onPressDo { chef1.imagen("chef8izq.png") }
-	keyboard.right().onPressDo { chef1.imagen("chef8der.png") }
+	    keyboard.left().onPressDo { chef1.imagen("chef8izq.png") }
+    	keyboard.right().onPressDo { chef1.imagen("chef8der.png") }
         //keyboard.shift().onPressDo{chef1.interactuar()}
         //keyboard.c().onPressDo{chef1.tomar()}
 
 
         //CHEF 2
-	keyboard.a().onPressDo { chef2.imagen("chef8izq.png") }
-	keyboard.d().onPressDo { chef2.imagen("chef8der.png") }
+	    keyboard.a().onPressDo { chef2.imagen("chef8izq.png") }
+	    keyboard.d().onPressDo { chef2.imagen("chef8der.png") }
         //keyboard.slash().onPressDo{chef2.interactuar()}
         //keyboard.num0().onPressDo{chef2.tomar()}
 
+    }
+    
+    method interacciones(){
         //AGARRAR INGREDIENTES
         game.whenCollideDo(chef1, {elemento =>
             if(chef1.objetoTransportado() == null){
@@ -150,6 +153,7 @@ object nivel {
         game.whenCollideDo(chef1, { mesa =>
             if (mesasConCuchillos.contains(mesa) && (ingredientesCortables.contains(chef1.objetoTransportado()))){
                 chef1.objetoTransportado().cortar()
+                game.say(chef1, "Lo corto")
             }
         })
 
@@ -166,13 +170,40 @@ object nivel {
                 elemento.agregarIngrediente(chef1.objetoTransportado())
                 game.say(chef1, "Lo deje en el plato!")
                 game.removeVisual(chef1.objetoTransportado())
-                elemento.mostrarIngrediente(chef1.objetoTransportado())
+                elemento.mostrarPlato()
                 chef1.quitarObjeto()
             }
         })
+        
+        /*game.whenCollideDo(Chef1, {elemento => 
+            if(platos)
+        })*/
 
+        game.whenCollideDo(chef1, { objeto =>
+            if (todasLasMesadas.contains(objeto) ){
+                return true
+            }
+        })
+        game.whenCollideDo(chef2, { objeto =>
+            if (todasLasMesadas.contains(objeto) ){
+                return true
+            }
+        })
+
+        //COCINAR INGREDIENTES
+        game.whenCollideDo(chef1, {mesa =>
+            if(mesasConSarten.contains(mesa) && chef1.objetoTransportado() != null){
+                if(chef1.objetoTransportado().crudo()){
+                    chef1.objetoTransportado().cocinar()
+                }
+            }
+            
+            })
     }
 }
+
+//Generacion de pedidos
+
 
 class Movimiento{
     var property imagen
