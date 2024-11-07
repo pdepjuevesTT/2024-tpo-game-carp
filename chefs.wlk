@@ -14,6 +14,10 @@ class Chef inherits Movimiento{
    method quitarObjeto() {
         objetoTransportado = null
    }
+
+    method tieneAlgo(){
+        return objetoTransportado != null
+   }
 }
 
 const chef1 = new Chef(position = game.at(7,8), imagen = "chef8der.png", movilidad = "flechas")
