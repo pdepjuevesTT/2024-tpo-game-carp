@@ -15,15 +15,12 @@ class MesadaSimpleFrente inherits MesasSimples{
 
 //Mesas Simples de Frente ordenadas de izq a der -> de abajo a arriba
 //y=12
-const mesadaSimpleFrente1 = new MesadaSimpleFrente(position = game.at(16,12))
-const mesadaSimpleFrente2 = new MesadaSimpleFrente(position = game.at(18,12))
-const mesadaSimpleFrente3 = new MesadaSimpleFrente(position = game.at(20,12))
+const mesadaSimpleFrente1 = new MesadaSimpleFrente(position = game.at(14,12))
+const mesadaSimpleFrente2 = new MesadaSimpleFrente(position = game.at(16,12))
+const mesadaSimpleFrente3 = new MesadaSimpleFrente(position = game.at(18,12))
 //y=16
 const mesadaSimpleFrente4 = new MesadaSimpleFrente(position = game.at(6,16))
 const mesadaSimpleFrente5 = new MesadaSimpleFrente(position = game.at(12,16))
-const mesadaSimpleFrente6 = new MesadaSimpleFrente(position = game.at(14,16))
-const mesadaSimpleFrente7 = new MesadaSimpleFrente(position = game.at(22,16))
-const mesadaSimpleFrente8 = new MesadaSimpleFrente(position = game.at(30,16))
 
 //MESADAS SIMPLES
 class MesadaSimple {
@@ -35,44 +32,41 @@ class MesadaSimple {
 //y=2
 const mesadaSimple1 = new MesadaSimple(position = game.at(4,2))
 const mesadaSimple2 = new MesadaSimple(position = game.at(6,2))
-const mesadaSimple3 = new MesadaSimple(position = game.at(8,2))
-const mesadaSimple4 = new MesadaSimple(position = game.at(10,2))
-const mesadaSimple5 = new MesadaSimple(position = game.at(12,2))
-const mesadaSimple6 = new MesadaSimple(position = game.at(14,2))
-const mesadaSimple7 = new MesadaSimple(position = game.at(16,2))
-const mesadaSimple8 = new MesadaSimple(position = game.at(20,2))
-const mesadaSimple9 = new MesadaSimple(position = game.at(22,2))
-const mesadaSimple10 = new MesadaSimple(position = game.at(24,2))
-const mesadaSimple11 = new MesadaSimple(position = game.at(26,2))
-const mesadaSimple12 = new MesadaSimple(position = game.at(28,2))
-const mesadaSimple13 = new MesadaSimple(position = game.at(30,2))
-const mesadaSimple14 = new MesadaSimple(position = game.at(32,2))
+const mesadaSimple3 = new MesadaSimple(position = game.at(10,2))
+const mesadaSimple4 = new MesadaSimple(position = game.at(14,2))
+const mesadaSimple5 = new MesadaSimple(position = game.at(18,2))
+const mesadaSimple6 = new MesadaSimple(position = game.at(20,2))
+const mesadaSimple7 = new MesadaSimple(position = game.at(22,2))
+const mesadaSimple8 = new MesadaSimple(position = game.at(24,2))
+const mesadaSimple9 = new MesadaSimple(position = game.at(26,2))
+const mesadaSimple10 = new MesadaSimple(position = game.at(28,2))
 //y=4
-const mesadaSimple15 = new MesadaSimple(position = game.at(4,4))
-const mesadaSimple16 = new MesadaSimple(position = game.at(16,4))
-const mesadaSimple17 = new MesadaSimple(position = game.at(20,4))
-const mesadaSimple18 = new MesadaSimple(position = game.at(32,4))
+const mesadaSimple11 = new MesadaSimple(position = game.at(14,4))
+const mesadaSimple12 = new MesadaSimple(position = game.at(18,4))
+const mesadaSimple13 = new MesadaSimple(position = game.at(28,4))
 //y=6
-const mesadaSimple19 = new MesadaSimple(position = game.at(16,6))
-const mesadaSimple20 = new MesadaSimple(position = game.at(18,6))
-const mesadaSimple21 = new MesadaSimple(position = game.at(20,6))
-const mesadaSimple22 = new MesadaSimple(position = game.at(32,6))
+const mesadaSimple14 = new MesadaSimple(position = game.at(4,6))
+const mesadaSimple15 = new MesadaSimple(position = game.at(14,6))
+const mesadaSimple16 = new MesadaSimple(position = game.at(18,6))
+const mesadaSimple17 = new MesadaSimple(position = game.at(28,6))
 //y=8
-const mesadaSimple23 = new MesadaSimple(position = game.at(32,8))
+const mesadaSimple18 = new MesadaSimple(position = game.at(14,8))
+const mesadaSimple19 = new MesadaSimple(position = game.at(16,8))
+const mesadaSimple20 = new MesadaSimple(position = game.at(18,8))
+const mesadaSimple21 = new MesadaSimple(position = game.at(28,8))
 //y=10
-const mesadaSimple24 = new MesadaSimple(position = game.at(32,10))
+const mesadaSimple22 = new MesadaSimple(position = game.at(28,10))
 //y=12
-const mesadaSimple25 = new MesadaSimple(position = game.at(32,12))
+const mesadaSimple23 = new MesadaSimple(position = game.at(28,12))
 //y=14
-const mesadaSimple26 = new MesadaSimple(position = game.at(4,14))
-const mesadaSimple27 = new MesadaSimple(position = game.at(16,14))
-const mesadaSimple28 = new MesadaSimple(position = game.at(20,14))
-const mesadaSimple29 = new MesadaSimple(position = game.at(32,14))
+const mesadaSimple24 = new MesadaSimple(position = game.at(14,14))
+const mesadaSimple25 = new MesadaSimple(position = game.at(18,14))
+const mesadaSimple26 = new MesadaSimple(position = game.at(28,14))
 //y=16
-const mesadaSimple30 = new MesadaSimple(position = game.at(4,16))
-const mesadaSimple31 = new MesadaSimple(position = game.at(16,16))
-const mesadaSimple32 = new MesadaSimple(position = game.at(20,16))
-const mesadaSimple33 = new MesadaSimple(position = game.at(32,16))
+const mesadaSimple27 = new MesadaSimple(position = game.at(4,16))
+const mesadaSimple28 = new MesadaSimple(position = game.at(14,16))
+const mesadaSimple29 = new MesadaSimple(position = game.at(18,16))
+const mesadaSimple30 = new MesadaSimple(position = game.at(28,16))
 
 // MESAS CON SARTEN
 class MesaConSarten {
@@ -80,9 +74,10 @@ class MesaConSarten {
     const property position
 }
 
-const mesaConSarten1 = new MesaConSarten(position = game.at(24,16))
-const mesaConSarten2 = new MesaConSarten(position = game.at(26,16))
-const mesaConSarten3 = new MesaConSarten(position = game.at(28,16))
+const mesaConSarten1 = new MesaConSarten(position = game.at(20,16))
+const mesaConSarten2 = new MesaConSarten(position = game.at(22,16))
+const mesaConSarten3 = new MesaConSarten(position = game.at(24,16))
+const mesaConSarten4 = new MesaConSarten(position = game.at(26,16))
 
 // MESAS DE INGREDIENTES
 class MesaDeIngrediente {
@@ -92,19 +87,20 @@ class MesaDeIngrediente {
     //Agarrar ingrediente
 }
 
-const mesaLechuga = new MesaDeIngrediente(imagen = "mesaLechuga.png", position = game.at(4,6))
-const mesaPan = new MesaDeIngrediente(imagen = "mesaPan.png", position = game.at(4,8))
-const mesaCarne = new MesaDeIngrediente (imagen = "mesaCarne.png", position = game.at(4,10))
-const mesaTomate = new MesaDeIngrediente (imagen = "mesaTomate.png", position = game.at(4,12))
+const mesaLechuga = new MesaDeIngrediente(imagen = "mesaLechuga.png", position = game.at(4,8))
+const mesaPan = new MesaDeIngrediente(imagen = "mesaPan.png", position = game.at(4,10))
+const mesaCarne = new MesaDeIngrediente (imagen = "mesaCarne.png", position = game.at(4,12))
+const mesaTomate = new MesaDeIngrediente (imagen = "mesaTomate.png", position = game.at(4,14))
 
 class MesaConCuchillo {
-    method image() = "mesaConCuchillo1.png"
+    method image() = "mesaConCuchillo.png"
     const property position
 }
 
-const mesaConCuchillo1 = new MesaConCuchillo(position = game.at(13,0))
+const mesaConCuchillo1 = new MesaConCuchillo(position = game.at(8,2))
+const mesaConCuchillo2 = new MesaConCuchillo(position = game.at(12,2))
 
-const mesasConCuchillos = [mesaConCuchillo1]
+const mesasConCuchillos = [mesaConCuchillo1,mesaConCuchillo2]
 
 // PILETA
 object pileta {
