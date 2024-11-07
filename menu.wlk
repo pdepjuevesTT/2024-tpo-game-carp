@@ -14,7 +14,7 @@ class Menu{
     const property recompensa
     const property tiempoDisponible
 
-    method tiempoLimite(){self.schedule(tiempoDisponible, Clientes.eliminarPedido(self))}//schedule(milliseconds, action)
+    //method tiempoLimite(){self.schedule(tiempoDisponible, Clientes.eliminarPedido(self))}//schedule(milliseconds, action)
 
 }
 
@@ -55,7 +55,7 @@ class IngredientesCocinables inherits Ingredientes{
     var property imagenCocinada
     var property imagenQuemada
 
-    method cocinar(){
+    /*method cocinar(){
         if(self.cocinar().start() < tiempoCoccion && crudo){ //que arranque el tiempo cuando empieza a cocinar
             imagen = imagenCocinada
             game.addVisual(self)
@@ -63,29 +63,29 @@ class IngredientesCocinables inherits Ingredientes{
             imagen = imagenQuemada
         }
 
-    }
+    }*/
 }
 
 
 
 const pan = new Ingredientes(imagen = "panChiquito.png",
-                            position = game.at(1,9),
+                            position = game.at(4,8),
                             movilidad = "flechas")
 
 
 const lechuga = new IngredientesCortables(imagen = "lechugaChiquita.png",
                                          imagenCortada = "lechugaCortada1.png",
-                                         position = game.at(0,7),
+                                         position = game.at(4,6),
                                          movilidad = "flechas")
 
 const tomate = new IngredientesCortables(imagen = "tomateChiquito.png",
                                         imagenCortada = "tomateCortado1.png",
-                                        position = game.at(3,13),
+                                        position = game.at(4,12),
                                         movilidad = "flechas")
 
 const carne = new IngredientesCortables(imagen = "carne.png",
                                        imagenCortada = "carneChiquita.png",
-                                       position = game.at(2,11),
+                                       position = game.at(4,10),
                                        movilidad = "flechas")
 
 const ingredientesCortables = [lechuga, tomate, carne]
@@ -98,11 +98,39 @@ class Plato inherits Movimiento{
     method agregarIngrediente(ingrediente){
         emplatado.add(ingrediente)
     }
+
+    method mostrarIngrediente(elemento){
+        if (elemento == pan){
+            imagen = "platoConPan.png"
+        } else if (elemento == lechuga){
+            imagen = "platoConLechuga.png"
+        } else if (elemento == carne){
+            imagen = "platoConCarne.png"
+        } else if (elemento == tomate){
+            imagen = "platoConTomate.png"
+        }
+    }
 }
 
 
 const plato1 = new Plato(imagen = "plato2.png",
-                        position = game.at(5,5),
+                        position = game.at(22,2),
                         movilidad = "flechas")
 
-const platos = [plato1]
+const plato2 = new Plato(imagen = "plato2.png",
+                        position = game.at(24,2),
+                        movilidad = "flechas")
+
+const plato3 = new Plato(imagen = "plato2.png",
+                        position = game.at(26,2),
+                        movilidad = "flechas")
+
+const plato4 = new Plato(imagen = "plato2.png",
+                        position = game.at(28,2),
+                        movilidad = "flechas")
+                        
+const plato5 = new Plato(imagen = "plato2.png",
+                        position = game.at(30,2),
+                        movilidad = "flechas")
+
+const platos = [plato1, plato2, plato3, plato4, plato5]
