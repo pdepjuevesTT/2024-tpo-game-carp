@@ -158,11 +158,14 @@ object nivel {
         })
 
         //AGARRAR PLATO
-        /*game.whenCollideDo(chef1, { plato =>
+        game.whenCollideDo(chef1, { plato =>
             if(platos.contains(plato) && chef1.objetoTransportado() == null){
-            chef1.tomarObjeto(plato)
+                keyboard.space().onPressDo {
+                    chef1.tomarObjeto(plato)
+                    plato.configurate()
+                }
             }
-        })*/
+        })
 
         //PONER INGREDIENTES EN PLATO
         game.whenCollideDo(chef1, { elemento => 
@@ -198,13 +201,12 @@ object nivel {
 
         //COCINAR INGREDIENTES
         game.whenCollideDo(chef1, {mesa =>
-            if(mesasConSarten.contains(mesa) && chef1.objetoTransportado() != null){
-                if(chef1.objetoTransportado().crudo()){
-                    chef1.objetoTransportado().cocinar()
-                }
+            if(mesasConSarten.contains(mesa) && chef1.objetoTransportado() == carne){
+                carne.cocinar()
+                game.say(chef1, "Lo cocino")
             }
             
-            })
+        })
     }
 }
 
@@ -222,17 +224,17 @@ class Movimiento{
         self.position(nuevaPosicion)
     }
     method configurate(){
-	if(enMovimiento){
+	    if(enMovimiento){
             if(movilidad == "flechas"){
             	keyboard.up().onPressDo { self.move(self.position().up(1)) }
-	        keyboard.down().onPressDo { self.move(self.position().down(1)) }
-	        keyboard.left().onPressDo { self.move(self.position().left(1)) }
-	        keyboard.right().onPressDo { self.move(self.position().right(1)) }
+	            keyboard.down().onPressDo { self.move(self.position().down(1)) }
+	            keyboard.left().onPressDo { self.move(self.position().left(1)) }
+	            keyboard.right().onPressDo { self.move(self.position().right(1)) }
             } else if(movilidad == "wasd"){
             	keyboard.w().onPressDo { self.move(self.position().up(1)) }
-	        keyboard.s().onPressDo { self.move(self.position().down(1)) }
-	        keyboard.a().onPressDo { self.move(self.position().left(1)) }
-	        keyboard.d().onPressDo { self.move(self.position().right(1)) }
+	            keyboard.s().onPressDo { self.move(self.position().down(1)) }
+	            keyboard.a().onPressDo { self.move(self.position().left(1)) }
+	            keyboard.d().onPressDo { self.move(self.position().right(1)) }
             }
         }
     }

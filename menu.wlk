@@ -45,23 +45,6 @@ class IngredientesCortables inherits Ingredientes {
     }
 }
 
-class IngredientesCocinables inherits Ingredientes{
-    var property crudo = true
-    var property tiempoCoccion
-    var property imagenCocinada
-    var property imagenQuemada
-
-    method cocinar(){
-        if(crudo){ //que arranque el tiempo cuando empieza a cocinar
-            crudo = false
-            imagen = imagenCocinada   
-        }
-
-    }
-}
-
-
-
 const pan = new Ingredientes(imagen = "panChiquito.png",
                             position = game.at(4,10),
                             movilidad = "flechas")
@@ -77,12 +60,28 @@ const tomate = new IngredientesCortables(imagen = "tomateChiquito.png",
                                         position = game.at(4,14),
                                         movilidad = "flechas")
 
-const carne = new IngredientesCortables(imagen = "carne.png",
-                                       imagenCortada = "carneChiquita.png",
-                                       position = game.at(4,12),
-                                       movilidad = "flechas")
-
 const ingredientesCortables = [lechuga, tomate, carne]
+
+class Hamburguesa inherits IngredientesCortables{
+    var property cocinado = false
+    //var property tiempoCoccion
+    var property imagenCocinada
+    //var property imagenQuemada
+
+    method cocinar(){
+        if(!cocinado && cortado){ //que arranque el tiempo cuando empieza a cocinar
+            cocinado = true
+            imagen = imagenCocinada   
+        }
+
+    }
+}
+
+const carne = new Hamburguesa (imagen = "carne.png",
+                              imagenCortada = "carneChiquita.png",
+                              imagenCocinada = "carneCocida1.png",
+                              position = game.at(4,12),
+                              movilidad = "flechas")
 
 class Plato inherits Movimiento{
     var property emplatado = #{} //ingredientes que contiene un plato
