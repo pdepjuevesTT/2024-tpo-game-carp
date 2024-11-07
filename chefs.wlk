@@ -19,13 +19,13 @@ class Chef inherits Movimiento{
         return objetoTransportado != null
    }
      
-     method pedidoCompletado(plato){
+     /*method pedidoCompletado(plato){
           if(pedido.completo(self.pedidos.first())){
                //Si esta completo? 
           }else{
                self.pedidos.remove(plato)
           }
-     }
+     }*/
 }
 
 const chef1 = new Chef(position = game.at(7,8), imagen = "chef8der.png", movilidad = "flechas")

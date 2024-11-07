@@ -97,15 +97,31 @@ class Plato inherits Movimiento{
         if (emplatado == #{pan}){
             imagen = "platoConPan.png"
         } else if (emplatado == #{lechuga}){
-            imagen = "platoConLechuga.png"
+            imagen = "platoConLechuga1.png"
         } else if (emplatado == #{carne}){
-            imagen = "platoConCarne.png"
+            imagen = "platoConHamburguesa.png"
         } else if (emplatado == #{tomate}){
-            imagen = "platoConTomate.png"
+            imagen = "platoConTomate1.png"
         } else if (emplatado == #{pan, lechuga}){
             imagen = "panConLechuga.png"
+        } else if (emplatado == #{pan, tomate}){
+            imagen = "panConTomate.png"
+        } else if (emplatado == #{pan, carne}){
+            imagen = "panConHamburguesa.png"
+        } else if (emplatado == #{lechuga, carne}){
+            imagen = "platoConHamburguesaYLechuga.png"
+        } else if (emplatado == #{lechuga, tomate}){
+            imagen = "platoConTomateYLechuga.png"
+        } else if (emplatado == #{carne, tomate}){
+            imagen = "platoConHamburguesaYTomate.png"
         } else if (emplatado == #{pan, lechuga, tomate}){
             imagen = "panConLechugaYTomate.png"
+        } else if (emplatado == #{pan, lechuga, carne}){
+            imagen = "panConHamburguesaYLechuga.png"
+        } else if (emplatado == #{pan, tomate, carne}){
+            imagen = "panConHamburguesaYTomate.png"
+        } else if (emplatado == #{lechuga, tomate, carne}){
+            imagen = "platoConCompletaSinPan.png"
         } else if (emplatado == #{pan, lechuga, tomate, carne}){
             imagen = "hamburguesaCompleta.png"
         }

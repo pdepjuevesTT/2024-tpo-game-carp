@@ -167,11 +167,17 @@ object nivel {
         //PONER INGREDIENTES EN PLATO
         game.whenCollideDo(chef1, { elemento => 
             if(platos.contains(elemento) && chef1.tieneAlgo()){
-                elemento.agregarIngrediente(chef1.objetoTransportado())
-                game.say(chef1, "Lo deje en el plato!")
-                game.removeVisual(chef1.objetoTransportado())
-                elemento.mostrarPlato()
-                chef1.quitarObjeto()
+                if(chef1.objetoTransportado() == pan || 
+                (chef1.objetoTransportado() == tomate && tomate.cortado()) || 
+                (chef1.objetoTransportado() == lechuga && lechuga.cortado()) ||
+                (chef1.objetoTransportado() == carne && carne.cocinado())
+                ){
+                    elemento.agregarIngrediente(chef1.objetoTransportado())
+                    game.say(chef1, "Lo deje en el plato!")
+                    game.removeVisual(chef1.objetoTransportado())
+                    elemento.mostrarPlato()
+                    chef1.quitarObjeto()
+                }
             }
         })
         
@@ -179,7 +185,7 @@ object nivel {
             if(platos)
         })*/
 
-        game.whenCollideDo(chef1, { objeto =>
+        /*game.whenCollideDo(chef1, { objeto =>
             if (todasLasMesadas.contains(objeto) ){
                 return true
             }
@@ -188,7 +194,7 @@ object nivel {
             if (todasLasMesadas.contains(objeto) ){
                 return true
             }
-        })
+        })*/
 
         //COCINAR INGREDIENTES
         game.whenCollideDo(chef1, {mesa =>
