@@ -78,20 +78,27 @@ object nivel {
         //BASURA
         game.addVisual(basura)
 
+	//PLATOS
+        game.addVisual(plato1)
+        game.addVisual(plato2)
+        game.addVisual(plato3)
+        game.addVisual(plato4)
+        game.addVisual(plato5)
+
         //CHEFS
         game.addVisual(chef1)
         game.addVisual(chef2)
         
         //CHEF 1
-	    keyboard.left().onPressDo { chef1.imagen("chef8izq.png") }
-	    keyboard.right().onPressDo { chef1.imagen("chef8der.png") }
+	keyboard.left().onPressDo { chef1.imagen("chef8izq.png") }
+	keyboard.right().onPressDo { chef1.imagen("chef8der.png") }
         //keyboard.shift().onPressDo{chef1.interactuar()}
         //keyboard.c().onPressDo{chef1.tomar()}
 
 
         //CHEF 2
-	    keyboard.a().onPressDo { chef2.cambiarImagen("chef8izq.png") }
-	    keyboard.d().onPressDo { chef2.cambiarImagen("chef8der.png") }
+	keyboard.a().onPressDo { chef2.imagen("chef8izq.png") }
+	keyboard.d().onPressDo { chef2.imagen("chef8der.png") }
         //keyboard.slash().onPressDo{chef2.interactuar()}
         //keyboard.num0().onPressDo{chef2.tomar()}
 
@@ -102,27 +109,27 @@ object nivel {
                     game.say(chef1, "tengo una lechuga")
                     chef1.tomarObjeto(lechuga)
                     lechuga.imagen("lechugaChiquita.png")
-                    lechuga.position(game.at(0,7))
+                    lechuga.position(game.at(4,6))
                     game.addVisual(lechuga)
 
                 } else if (elemento == mesaPan) {
                     game.say(chef1, "tengo un pan")
                     chef1.tomarObjeto(pan)
-                    pan.position(game.at(1,9))
+                    pan.position(game.at(4,8))
                     game.addVisual(pan)
 
                 } else if (elemento == mesaCarne) {
                     game.say(chef1, "tengo una carne")
                     chef1.tomarObjeto(carne)
                     carne.imagen("carne.png")
-                    carne.position(game.at(2,11))
+                    carne.position(game.at(4,10))
                     game.addVisual(carne)
 
                 } else if (elemento == mesaTomate) {
                     game.say(chef1, "tengo un tomate")
                     chef1.tomarObjeto(tomate)
                     tomate.imagen("tomateChiquito.png")
-                    tomate.position(game.at(3,13))
+                    tomate.position(game.at(4,12))
                     game.addVisual(tomate)
                 }
             }
@@ -133,9 +140,9 @@ object nivel {
             if (elemento == basura && chef1.objetoTransportado() != null) {
                 game.say(chef1, "no tengo nada")
                 game.removeVisual(chef1.objetoTransportado())
-                chef1.objetoTransportado().sinPreparar(true)
-                //chef1.objetoTransportado().cortado(false)
                 chef1.quitarObjeto()
+                chef1.objetoTransportado().sinPreparar(true)
+                chef1.objetoTransportado().cortado(false)
             }
         })
 
@@ -147,19 +154,22 @@ object nivel {
         })
 
         //AGARRAR PLATO
-        game.whenCollideDo(chef1, { plato =>
+        /*game.whenCollideDo(chef1, { plato =>
             if(platos.contains(plato) && chef1.objetoTransportado() == null){
             chef1.tomarObjeto(plato)
             }
-        })
+        })*/
+
         //PONER INGREDIENTES EN PLATO
-        game.whenCollideDo(chef1, { elemento => if(elemento == Plato && chef1.objetoTransportado() != null){
-            Plato.agregarIngrediente(chef1.objetoTransportado())
-            game.say(chef1, "Lo deje en el plato!")
-            chef1.objetoTransportado().position(Plato.position())//posicion del objeto en la del plato
-            game.addVisual(chef1.objetoTransportado())
-            chef1.quitarObjeto()
-        }})
+        game.whenCollideDo(chef1, { elemento => 
+            if(platos.contains(elemento) && chef1.tieneAlgo()){
+                elemento.agregarIngrediente(chef1.objetoTransportado())
+                game.say(chef1, "Lo deje en el plato!")
+                game.removeVisual(chef1.objetoTransportado())
+                elemento.mostrarIngrediente(chef1.objetoTransportado())
+                chef1.quitarObjeto()
+            }
+        })
 
     }
 }
@@ -169,22 +179,24 @@ class Movimiento{
     method image() = imagen
     var property position
     const movilidad
+    var property enMovimiento = true
 
     method move(nuevaPosicion){
         self.position(nuevaPosicion)
     }
     method configurate(){
-
-        if(movilidad == "flechas"){
-            keyboard.up().onPressDo { self.move(self.position().up(1)) }
+	if(enMovimiento){
+            if(movilidad == "flechas"){
+            	keyboard.up().onPressDo { self.move(self.position().up(1)) }
 	        keyboard.down().onPressDo { self.move(self.position().down(1)) }
 	        keyboard.left().onPressDo { self.move(self.position().left(1)) }
 	        keyboard.right().onPressDo { self.move(self.position().right(1)) }
-        } else if(movilidad == "wasd"){
-            keyboard.w().onPressDo { self.move(self.position().up(1)) }
+            } else if(movilidad == "wasd"){
+            	keyboard.w().onPressDo { self.move(self.position().up(1)) }
 	        keyboard.s().onPressDo { self.move(self.position().down(1)) }
 	        keyboard.a().onPressDo { self.move(self.position().left(1)) }
 	        keyboard.d().onPressDo { self.move(self.position().right(1)) }
+            }
         }
     }
 }
