@@ -4,9 +4,10 @@ import clientes.*
 import menu.*
 import escenario.*
 import nivel.*
+import movimiento.*
 
 program overcooked{
-    nivel.configurate()
+        nivel.configurate()
     nivel.interacciones()
 
     chef1.configurate()

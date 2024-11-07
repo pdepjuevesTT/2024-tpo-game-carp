@@ -2,6 +2,8 @@
 import wollok.game.*
 import chefs.*
 import nivel.*
+import movimiento.*
+
 
 const menuAdulto =
             new MenuAdulto(recompensa = 100, tiempoDisponible = 50000)

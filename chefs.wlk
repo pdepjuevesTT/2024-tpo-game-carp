@@ -1,6 +1,7 @@
 //Archvio para chef, tipos de chefs
 import wollok.game.*
 import nivel.*
+import movimiento.*
 class Chef inherits Movimiento{
     var property dinero = 0
     var property objetoTransportado = null
