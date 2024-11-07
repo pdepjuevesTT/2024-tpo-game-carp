@@ -28,7 +28,7 @@ class MenuAnciano inherits Menu{
     override method ingredientes() = #{carne}
 }
 
-class Ingredientes inherits Movimiento{
+class Ingredientes inherits MovimientoObjetos{
     var property sinPreparar = true
 }
 

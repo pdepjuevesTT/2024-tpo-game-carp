@@ -136,6 +136,12 @@ const mesaConCuchillo2 = new MesaConCuchillo(position = game.at(12,2))
 
 const mesasConCuchillos = [mesaConCuchillo1,mesaConCuchillo2]
 
+//RECEPCIÓN
+object recepcion {
+    method image() = "recepcion2.png"
+    const property position = game.at(28,8)
+}
+
 // PILETA
 object pileta {
     method image() = "pileta.png"

@@ -78,6 +78,9 @@ object nivel {
         //BASURA
         game.addVisual(basura)
 
+        //RECEPCION
+        game.addVisual(recepcion)
+
 	    //PLATOS
         game.addVisual(plato1)
         game.addVisual(plato2)
@@ -211,6 +214,17 @@ object nivel {
             }
             
         })
+
+        //ENTREGAR PLATO
+        game.whenCollideDo(chef1, {mesa =>
+            if(mesa == recepcion && platos.contains(chef1.objetoTransportado())){
+                chef1.objetoTransportado().enMovimiento(false)
+                chef1.objetoTransportado().configurate()
+                game.removeVisual(chef1.objetoTransportado())
+                chef1.quitarObjeto()
+
+            }
+        })
     }
 }
 
@@ -253,10 +267,10 @@ class MovimientoObjetos inherits Movimiento{
 	            keyboard.left().onPressDo { self.move(chef1.position()) }
 	            keyboard.right().onPressDo { self.move(chef1.position()) }
             } else if(movilidad == "wasd"){
-            	keyboard.w().onPressDo { self.move(self.position().up(1)) }
-	            keyboard.s().onPressDo { self.move(self.position().down(1)) }
-	            keyboard.a().onPressDo { self.move(self.position().left(1)) }
-	            keyboard.d().onPressDo { self.move(self.position().right(1)) }
+            	keyboard.w().onPressDo { self.move(chef2.position().up(1)) }
+	            keyboard.s().onPressDo { self.move(chef2.position().down(1)) }
+	            keyboard.a().onPressDo { self.move(chef2.position().left(1)) }
+	            keyboard.d().onPressDo { self.move(chef2.position().right(1)) }
             }
         } 
     }
