@@ -4,31 +4,24 @@ import chefs.*
 import nivel.*
 import movimiento.*
 
-
-const menuAdulto =
-            new MenuAdulto(recompensa = 100, tiempoDisponible = 50000)
-const menuJoven = new MenuJoven(recompensa = 50, tiempoDisponible = 3000)
-
-const menuAnciano = new MenuAnciano(recompensa = 500, tiempoDisponible = 30000)
-
 class Menu{
-    const property ingredientes = #{}
+    const property ingredientes
     const property recompensa
     const property tiempoDisponible
 
 }
 
-class MenuAdulto inherits Menu{
-    override method ingredientes() = #{carne, lechuga, tomate}
-}
+const menuAdulto = new Menu(ingredientes = #{carne, lechuga, tomate}, 
+                            recompensa = 100, 
+                            tiempoDisponible = 50000)
 
-class MenuJoven inherits Menu{
-    override method ingredientes() = #{pan, carne}
-}
+const menuJoven = new Menu(ingredientes = #{pan, carne},
+                          recompensa = 50, 
+                          tiempoDisponible = 3000)
 
-class MenuAnciano inherits Menu{
-    override method ingredientes() = #{carne}
-}
+const menuAnciano = new Menu(ingredientes = #{carne}, 
+                            recompensa = 500, 
+                            tiempoDisponible = 30000)
 
 class Ingredientes inherits MovimientoObjetos{
     var property sinPreparar = true

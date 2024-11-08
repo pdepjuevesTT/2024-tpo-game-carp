@@ -2,6 +2,7 @@ import wollok.game.*
 import chefs.*
 import escenario.*
 import menu.*
+import clientes.*
 
 object nivel {
     method configurate(){
@@ -91,6 +92,11 @@ object nivel {
         //CHEFS
         game.addVisual(chef1)
         game.addVisual(chef2)
+
+        //CARTELES
+        game.addVisual(cartel1)
+        game.addVisual(cartel2)
+        game.addVisual(cartel3)
         
         //CHEF 1
 	    keyboard.left().onPressDo { chef1.imagen("chef8izq.png") }
@@ -226,6 +232,10 @@ object nivel {
 
             }
         })
+
+        keyboard.h().onPressDo{game.say(chef1,chef1.objetoTransportado())}
     }
+
+    
 }
 

@@ -1,5 +1,6 @@
 import menu.*
 import chefs.*
+import nivel.*
 //Archivo para clientes, tipos de clientes
 import wollok.game.*
 class Clientes{
@@ -18,7 +19,7 @@ class Clientes{
         
     }
 }
-
+/*
 class Adulto inherits Clientes{
     override method hacerPedido() = menuAdulto
 }
@@ -29,4 +30,20 @@ class Anciano inherits Clientes{
 
 class Joven inherits Clientes{
     override method hacerPedido() = menuJoven
+}
+*/
+
+object cartel1{
+    method image() = "menuCompleto.png"
+    var property position = game.at(30,16)
+}
+
+object cartel2{
+    method image() = "menuHamburguesaSola.png"
+    var property position = game.at(36,16)
+}
+
+object cartel3{
+    method image() = "MenuHamburguesaConLechuga.png"
+    var property position = game.at(30,12)
 }
