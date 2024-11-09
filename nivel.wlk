@@ -237,7 +237,7 @@ object nivel {
         })
 
         //GENERAR PEDIDOS
-        game.onTick(2000, "pedido", {generarPedido.generar()})
+        keyboard.m().onPressDo{generarPedido.generar()}
     }
 
     

@@ -35,13 +35,21 @@ class Joven inherits Clientes{
 
 object generarPedido{
     var property cantPedidos = 0
+    var property tipoDePedido = null
     var property nuevoPedido = null
 
-    method generar(){
+    method pedidoAleatorio(){
         nuevoPedido = pedidos.anyOne()
-        if(cantPedidos == 0){
+        return nuevoPedido
+    }
+
+    method generar(){
+        if(cantPedidos < 3){
+            self.pedidoAleatorio()
+            game.say(chef1, "hola")
             game.addVisual(nuevoPedido)
-            game.onTick(500, "Entra pedido", {nuevoPedido.moverse()})
+            cantPedidos = cantPedidos + 1
+            game.onTick(250, "Entra pedido", {nuevoPedido.moverse()})
         }
     }
 }
