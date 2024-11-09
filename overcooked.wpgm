@@ -6,17 +6,19 @@ import escenario.*
 import nivel.*
 import movimiento.*
 
+
 program overcooked{
     nivel.configurate()
     nivel.interacciones()
 
-    chef1.configurate()
-    chef2.configurate()
+    movimiento.flechas(chef1)
+    movimiento.wasd(chef2)
 
-    pan.configurate()
-    lechuga.configurate()
-    carne.configurate()
-    tomate.configurate()
+    movimiento.seguirChef(pan, chef1)
+    movimiento.seguirChef(lechuga, chef1)
+    movimiento.seguirChef(carne, chef1)
+    movimiento.seguirChef(tomate, chef1)
+
 
 
     game.start()

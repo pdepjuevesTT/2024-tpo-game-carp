@@ -33,17 +33,15 @@ class Joven inherits Clientes{
 }
 */
 
-object cartel1{
-    method image() = "menuCompleto.png"
-    var property position = game.at(30,16)
-}
+object generarPedido{
+    var property cantPedidos = 0
+    var property nuevoPedido = null
 
-object cartel2{
-    method image() = "menuHamburguesaSola.png"
-    var property position = game.at(36,16)
-}
-
-object cartel3{
-    method image() = "MenuHamburguesaConLechuga.png"
-    var property position = game.at(30,12)
+    method generar(){
+        nuevoPedido = pedidos.anyOne()
+        if(cantPedidos == 0){
+            game.addVisual(nuevoPedido)
+            game.onTick(500, "Entra pedido", {nuevoPedido.moverse()})
+        }
+    }
 }

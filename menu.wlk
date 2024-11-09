@@ -8,22 +8,37 @@ class Menu{
     const property ingredientes
     const property recompensa
     const property tiempoDisponible
+    const property imagen
+    var property position
 
+    method image() = imagen
+
+    method moverse() {
+        position = position.left(1)
+    }
 }
 
-const menuAdulto = new Menu(ingredientes = #{carne, lechuga, tomate}, 
-                            recompensa = 100, 
+const menuAdulto = new Menu(imagen = "menuCompleto1.png",
+                            position = game.at(30,17),
+                            ingredientes = #{pan, carne, lechuga, tomate}, 
+                            recompensa = 500, 
                             tiempoDisponible = 50000)
 
-const menuJoven = new Menu(ingredientes = #{pan, carne},
+const menuJoven = new Menu(imagen = "menuHamburguesaSola1.png",
+                          position = game.at(30,17),
+                          ingredientes = #{pan, carne},
                           recompensa = 50, 
                           tiempoDisponible = 3000)
 
-const menuAnciano = new Menu(ingredientes = #{carne}, 
-                            recompensa = 500, 
+const menuAnciano = new Menu(imagen = "MenuHamburguesaConLechuga1.png",
+                            position = game.at(30,17),
+                            ingredientes = #{pan, carne, lechuga}, 
+                            recompensa = 100, 
                             tiempoDisponible = 30000)
 
-class Ingredientes inherits MovimientoObjetos{
+const pedidos = #{menuAdulto, menuJoven, menuAnciano}
+
+class Ingredientes inherits ObjetoMovible{
     var property sinPreparar = true
 }
 
@@ -41,19 +56,16 @@ class IngredientesCortables inherits Ingredientes {
 }
 
 const pan = new Ingredientes(imagen = "panChiquito.png",
-                            position = game.at(4,10),
-                            movilidad = "flechas")
+                            position = game.at(4,10))
 
 
 const lechuga = new IngredientesCortables(imagen = "lechugaChiquita.png",
                                          imagenCortada = "lechugaCortada1.png",
-                                         position = game.at(4,8),
-                                         movilidad = "flechas")
+                                         position = game.at(4,8))
 
 const tomate = new IngredientesCortables(imagen = "tomateChiquito.png",
                                         imagenCortada = "tomateCortado1.png",
-                                        position = game.at(4,14),
-                                        movilidad = "flechas")
+                                        position = game.at(4,14))
 
 const ingredientesCortables = [lechuga, tomate, carne]
 
@@ -75,10 +87,9 @@ class Hamburguesa inherits IngredientesCortables{
 const carne = new Hamburguesa (imagen = "carne.png",
                               imagenCortada = "carneChiquita.png",
                               imagenCocinada = "carneCocida1.png",
-                              position = game.at(4,12),
-                              movilidad = "flechas")
+                              position = game.at(4,12))
 
-class Plato inherits MovimientoObjetos{
+class Plato inherits ObjetoMovible{
     var property emplatado = #{} //ingredientes que contiene un plato
 
     method completo(menu) = self.emplatado().all(menu.ingredientes())
@@ -120,32 +131,26 @@ class Plato inherits MovimientoObjetos{
             imagen = "hamburguesaCompleta.png"
         }
     }
+
+    method irse(){
+        position = position.right(1)
+    }
 }
 
 
 const plato1 = new Plato(imagen = "plato2.png",
-                        position = game.at(20,2),
-                        movilidad = "flechas",
-                        enMovimiento = false)
+                        position = game.at(20,2))
 
 const plato2 = new Plato(imagen = "plato2.png",
-                        position = game.at(22,2),
-                        movilidad = "flechas",
-                        enMovimiento = false)
+                        position = game.at(22,2))
 
 const plato3 = new Plato(imagen = "plato2.png",
-                        position = game.at(24,2),
-                        movilidad = "flechas",
-                        enMovimiento = false)
+                        position = game.at(24,2))
 
 const plato4 = new Plato(imagen = "plato2.png",
-                        position = game.at(26,2),
-                        movilidad = "flechas",
-                        enMovimiento = false)
+                        position = game.at(26,2))
                         
 const plato5 = new Plato(imagen = "plato2.png",
-                        position = game.at(28,4),
-                        movilidad = "flechas",
-                        enMovimiento = false)
+                        position = game.at(28,4))
 
 const platos = [plato1, plato2, plato3, plato4, plato5]

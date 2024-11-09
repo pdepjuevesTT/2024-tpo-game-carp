@@ -1,3 +1,4 @@
+import movimiento.*
 import wollok.game.*
 import chefs.*
 import escenario.*
@@ -92,11 +93,6 @@ object nivel {
         //CHEFS
         game.addVisual(chef1)
         game.addVisual(chef2)
-
-        //CARTELES
-        game.addVisual(cartel1)
-        game.addVisual(cartel2)
-        game.addVisual(cartel3)
         
         //CHEF 1
 	    keyboard.left().onPressDo { chef1.imagen("chef8izq.png") }
@@ -168,13 +164,14 @@ object nivel {
 
         //AGARRAR PLATO
         game.whenCollideDo(chef1, { plato =>
-            if(platos.contains(plato) && chef1.objetoTransportado() == null && !plato.enMovimiento()){
+            if(platos.contains(plato)){
                 keyboard.space().onPressDo {
-                    chef1.tomarObjeto(plato)
-                    plato.configurate()
-                    plato.enMovimiento(true)
-                    game.removeVisual(plato)
-                    game.addVisual(plato)
+                    if(chef1.position() == plato.position()){
+                        chef1.tomarObjeto(plato)
+                        movimiento.seguirChef(plato, chef1)
+                        game.removeVisual(plato)
+                        game.addVisual(plato)
+                    }
                 }
             }
         })
@@ -226,14 +223,21 @@ object nivel {
             if(mesa == recepcion && platos.contains(chef1.objetoTransportado())){
                 game.say(chef1,"Pedido entregado!")
                 chef1.objetoTransportado().enMovimiento(false)
-                chef1.objetoTransportado().configurate()
-                game.removeVisual(chef1.objetoTransportado())
                 chef1.quitarObjeto()
 
             }
         })
 
-        keyboard.h().onPressDo{game.say(chef1,chef1.objetoTransportado())}
+        game.whenCollideDo(recepcion, {plato =>
+           if(platos.contains(plato)){
+                game.onTick(500, "entregando", {plato.irse()})
+                plato.irse()
+                game.say(plato, "entregando")
+            } 
+        })
+
+        //GENERAR PEDIDOS
+        game.onTick(2000, "pedido", {generarPedido.generar()})
     }
 
     
