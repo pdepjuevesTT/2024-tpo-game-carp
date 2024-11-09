@@ -9,6 +9,7 @@ class Menu{
     const property recompensa
     const property tiempoDisponible
     const property imagen
+    const property orden
     var property position
 
     method image() = imagen
@@ -19,36 +20,32 @@ class Menu{
 }
 
 class MenuAdulto inherits Menu(imagen = "menuCompleto1.png",
-                              position = game.at(40,17),
                               ingredientes = #{pan, carne, lechuga, tomate}, 
                               recompensa = 500, 
                               tiempoDisponible = 50000){}
 
 class MenuJoven inherits Menu(imagen = "menuHamburguesaSola1.png",
-                             position = game.at(40,17),
                              ingredientes = #{pan, carne},
                              recompensa = 50, 
                              tiempoDisponible = 3000){}
 
 class MenuAnciano inherits Menu(imagen = "MenuHamburguesaConLechuga1.png",
-                               position = game.at(40,17),
                                ingredientes = #{pan, carne, lechuga}, 
                                recompensa = 100, 
                                tiempoDisponible = 30000){}
 
 //Buscar una forma para generar los objetos con un method
-const menuAdulto1 = new MenuAdulto()
-const menuAdulto2 = new MenuAdulto()
-const menuAdulto3 = new MenuAdulto()
-const menuJoven1 = new MenuJoven()
-const menuJoven2 = new MenuJoven()
-const menuJoven3 = new MenuJoven()
-const menuAnciano1 = new MenuAnciano()
-const menuAnciano2 = new MenuAnciano()
-const menuAnciano3 = new MenuAnciano()
+const menuAdulto1 = new MenuAdulto(position = game.at(5,17), orden = 1)
+const menuAdulto2 = new MenuAdulto(position = game.at(10,17), orden = 2)
+const menuAdulto3 = new MenuAdulto(position = game.at(15,17), orden = 3)
+const menuJoven1 = new MenuJoven(position = game.at(5,17), orden = 1)
+const menuJoven2 = new MenuJoven(position = game.at(10,17), orden = 2)
+const menuJoven3 = new MenuJoven(position = game.at(15,17), orden = 3)
+const menuAnciano1 = new MenuAnciano(position = game.at(5,17), orden = 1)
+const menuAnciano2 = new MenuAnciano(position = game.at(10,17), orden = 2)
+const menuAnciano3 = new MenuAnciano(position = game.at(15,17), orden = 3)
 
-const pedidos = #{menuAdulto1, menuAdulto2, menuAdulto3, menuJoven1, menuJoven2, menuJoven3, menuAnciano1, menuAnciano2, menuAnciano3}
-
+const pedidos = #{menuAdulto1, menuAdulto2, menuAdulto3 ,menuJoven1, menuJoven2, menuJoven3, menuAnciano1, menuAnciano2, menuAnciano3}
 
 class Ingredientes inherits ObjetoMovible{
     var property sinPreparar = true

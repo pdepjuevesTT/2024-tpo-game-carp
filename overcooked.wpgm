@@ -19,7 +19,5 @@ program overcooked{
     movimiento.seguirChef(carne, chef1)
     movimiento.seguirChef(tomate, chef1)
 
-
-
     game.start()
 }
