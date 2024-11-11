@@ -16,7 +16,7 @@ class Clientes{
     }
 
     method eliminarPedido(menu){
-        
+
     }
 }
 /*
@@ -34,13 +34,12 @@ class Joven inherits Clientes{
 */
 
 object generarPedido{
-    var property pedido1 = null 
-    var property pedido2 = null 
-    var property pedido3 = null 
+    var property pedido1 = null
+    var property pedido2 = null
+    var property pedido3 = null
     var property libre1 = true
     var property libre2 = true
     var property libre3 = true
-    
 
     method pedidoAleatorio(orden){
         if(orden == 1){

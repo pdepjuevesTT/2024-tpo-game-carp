@@ -14,7 +14,8 @@ object nivel {
         game.cellSize(40)
         game.boardGround("piso5.png")
 
-        // MUEBLES
+        //DINERO
+        //game.addVisual(marcador)
 
         //MESADAS SIMPLES
         game.addVisual(mesadaSimple1)    
@@ -108,7 +109,7 @@ object nivel {
         //keyboard.num0().onPressDo{chef2.tomar()}
 
     }
-    
+
     method interacciones(){
         //AGARRAR INGREDIENTES
         game.whenCollideDo(chef1, {elemento =>
@@ -147,7 +148,7 @@ object nivel {
         game.whenCollideDo(chef1, { elemento =>
             if (elemento == basura && chef1.objetoTransportado() != null) {
                 game.say(chef1, "no tengo nada")
-                game.removeVisual(chef1.objetoTransportado())                
+                game.removeVisual(chef1.objetoTransportado())
                 chef1.objetoTransportado().sinPreparar(true)
                 chef1.objetoTransportado().cortado(false)
                 chef1.quitarObjeto()
@@ -193,7 +194,6 @@ object nivel {
                 }
             }
         })
-        
         /*game.whenCollideDo(Chef1, {elemento => 
             if(platos)
         })*/
@@ -215,7 +215,6 @@ object nivel {
                 carne.cocinar()
                 game.say(chef1, "Lo cocino")
             }
-            
         })
 
         //ENTREGAR PLATO
@@ -224,7 +223,9 @@ object nivel {
                 game.say(chef1,"Pedido entregado!")
                 chef1.objetoTransportado().enMovimiento(false)
                 chef1.quitarObjeto()
+                marcador.agregarDinero(Menu.recompensa())
 
+                game.addVisual(marcador)
             }
         })
 

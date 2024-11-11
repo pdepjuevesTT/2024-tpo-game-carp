@@ -20,18 +20,18 @@ class Menu{
 }
 
 class MenuAdulto inherits Menu(imagen = "menuCompleto1.png",
-                              ingredientes = #{pan, carne, lechuga, tomate}, 
-                              recompensa = 500, 
+                              ingredientes = #{pan, carne, lechuga, tomate},
+                              recompensa = 500,
                               tiempoDisponible = 50000){}
 
 class MenuJoven inherits Menu(imagen = "menuHamburguesaSola1.png",
                              ingredientes = #{pan, carne},
-                             recompensa = 50, 
+                             recompensa = 50,
                              tiempoDisponible = 3000){}
 
 class MenuAnciano inherits Menu(imagen = "MenuHamburguesaConLechuga1.png",
-                               ingredientes = #{pan, carne, lechuga}, 
-                               recompensa = 100, 
+                               ingredientes = #{pan, carne, lechuga},
+                               recompensa = 100,
                                tiempoDisponible = 30000){}
 
 //Buscar una forma para generar los objetos con un method
@@ -87,7 +87,7 @@ class Hamburguesa inherits IngredientesCortables{
     method cocinar(){
         if(!cocinado && cortado){ //que arranque el tiempo cuando empieza a cocinar
             cocinado = true
-            imagen = imagenCocinada   
+            imagen = imagenCocinada
         }
 
     }
@@ -158,7 +158,7 @@ const plato3 = new Plato(imagen = "plato2.png",
 
 const plato4 = new Plato(imagen = "plato2.png",
                         position = game.at(26,2))
-                        
+
 const plato5 = new Plato(imagen = "plato2.png",
                         position = game.at(28,4))
 
