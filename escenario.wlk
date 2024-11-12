@@ -153,3 +153,7 @@ object basura{
     method image() = "basura.png"
     method position() = game.at(4,4)
 }
+
+object flag{
+    method position() = game.at(5,5)
+}

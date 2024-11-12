@@ -34,6 +34,8 @@ class Joven inherits Clientes{
 */
 
 object generarPedido{
+    var property pedidosDisponibles = #{}
+
     var property pedido1 = null
     var property pedido2 = null
     var property pedido3 = null
@@ -68,5 +70,18 @@ object generarPedido{
             game.addVisual(pedido3)
             libre3 = false
         }
+        pedidosDisponibles = #{pedido1, pedido2, pedido3}
     }
+
+    method cumple(plato){
+        return pedidosDisponibles.any({elemento => elemento != null &&
+                                     elemento.ingredientes() == plato.emplatado()})
+    }
+
+    method hallar(plato){
+        return pedidosDisponibles.find({elemento => elemento.ingredientes() == plato.emplatado()})
+    }
+
+    
+
 }

@@ -224,17 +224,25 @@ object nivel {
                 chef1.objetoTransportado().enMovimiento(false)
                 chef1.quitarObjeto()
                 marcador.agregarDinero(Menu.recompensa())
-
                 game.addVisual(marcador)
             }
         })
 
         game.whenCollideDo(recepcion, {plato =>
            if(platos.contains(plato)){
-                game.onTick(500, "entregando", {plato.irse()})
-                plato.irse()
-                game.say(plato, "entregando")
-            } 
+                if(generarPedido.cumple(plato)){
+                    game.onTick(500, "entregando", {plato.irse()})
+                    plato.irse()
+                    game.say(plato, "entregando")
+                    generarPedido.hallar(plato).entregado()//Achicar esta parte
+                    game.sound("entregaExitosa.mp3").play()
+                    game.schedule(2000, {game.removeVisual(generarPedido.hallar(plato))})
+                    
+                } else{
+                    game.say(plato, "plato mal hecho")
+                    game.schedule(2000, {game.removeVisual(plato)})
+                }
+           }
         })
 
         //GENERAR PEDIDOS

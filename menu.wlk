@@ -8,7 +8,8 @@ class Menu{
     const property ingredientes
     const property recompensa
     const property tiempoDisponible
-    const property imagen
+    var property imagen
+    const property imagenEntregada
     const property orden
     var property position
 
@@ -17,19 +18,26 @@ class Menu{
     method moverse() {
         position = position.left(1)
     }
+
+    method entregado(){
+        imagen = imagenEntregada
+    }
 }
 
 class MenuAdulto inherits Menu(imagen = "menuCompleto1.png",
+                              imagenEntregada = "menuCompletoEntregada.png",
                               ingredientes = #{pan, carne, lechuga, tomate},
                               recompensa = 500,
                               tiempoDisponible = 50000){}
 
 class MenuJoven inherits Menu(imagen = "menuHamburguesaSola1.png",
+                             imagenEntregada = "menuHamburguesaSolaEntregada1.png",
                              ingredientes = #{pan, carne},
                              recompensa = 50,
                              tiempoDisponible = 3000){}
 
 class MenuAnciano inherits Menu(imagen = "MenuHamburguesaConLechuga1.png",
+                               imagenEntregada = "MenuHamburguesaConLechugaEntregada.png",
                                ingredientes = #{pan, carne, lechuga},
                                recompensa = 100,
                                tiempoDisponible = 30000){}
