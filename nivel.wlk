@@ -1,6 +1,7 @@
 import movimiento.*
 import wollok.game.*
 import chefs.*
+import ingredientes.*
 import escenario.*
 import menu.*
 import clientes.*
@@ -22,7 +23,7 @@ object nivel {
         musica.play()
 
         //MESADAS SIMPLES
-        game.addVisual(mesadaSimple1)    
+        game.addVisual(mesadaSimple1)
         game.addVisual(mesadaSimple2)
         game.addVisual(mesadaSimple3)
         game.addVisual(mesadaSimple4)
@@ -96,21 +97,21 @@ object nivel {
         game.addVisual(plato5)
 
         //CHEFS
+
+        /* const chef1 = new Chef(position = game.at(7,8), imagen = "chef8der.png")
+        const chef2 = new Chef(position = game.at(24,8), imagen = "chef8izq.png")
+        const chefs = [chef1, chef2] */
+
         game.addVisual(chef1)
         game.addVisual(chef2)
-        
+
         //CHEF 1
 	    keyboard.left().onPressDo { chef1.imagen("chef8izq.png") }
     	keyboard.right().onPressDo { chef1.imagen("chef8der.png") }
-        //keyboard.shift().onPressDo{chef1.interactuar()}
-        //keyboard.c().onPressDo{chef1.tomar()}
-
 
         //CHEF 2
 	    keyboard.a().onPressDo { chef2.imagen("chef8izq.png") }
 	    keyboard.d().onPressDo { chef2.imagen("chef8der.png") }
-        //keyboard.slash().onPressDo{chef2.interactuar()}
-        //keyboard.num0().onPressDo{chef2.tomar()}
 
     }
 

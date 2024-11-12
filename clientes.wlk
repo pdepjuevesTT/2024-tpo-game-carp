@@ -16,22 +16,8 @@ class Clientes{
     }
 
     method eliminarPedido(menu){
-
     }
 }
-/*
-class Adulto inherits Clientes{
-    override method hacerPedido() = menuAdulto
-}
-
-class Anciano inherits Clientes{
-    override method hacerPedido() = menuAnciano
-}
-
-class Joven inherits Clientes{
-    override method hacerPedido() = menuJoven
-}
-*/
 
 object generarPedido{
     var property pedidosDisponibles = #{}

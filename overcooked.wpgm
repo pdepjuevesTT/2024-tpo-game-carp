@@ -4,6 +4,7 @@ import clientes.*
 import menu.*
 import escenario.*
 import nivel.*
+import ingredientes.*
 import movimiento.*
 
 

@@ -51,6 +51,8 @@ class MesadaSimple {
     const property position
 }
 
+
+
 //Mesas Simples ordenadas de izquierda a derecha -> de abajo a arriba.
 //y=2
 const mesadaSimple1 = new MesadaSimple(position = game.at(4,2))
