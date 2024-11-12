@@ -16,7 +16,8 @@ object nivel {
         game.boardGround("piso5.png")
 
         //DINERO
-        //game.addVisual(marcador)
+        game.addVisual(marcadorDeDinero) //Funciona?
+        marcadorDeDinero.text()//Funciona?
 
         //MUSICA
         musica.loop()
@@ -95,6 +96,11 @@ object nivel {
         game.addVisual(plato3)
         game.addVisual(plato4)
         game.addVisual(plato5)
+
+        //VIDAS
+        game.addVisual(vida1)
+        game.addVisual(vida2)
+        game.addVisual(vida3)
 
         //CHEFS
 
@@ -222,16 +228,17 @@ object nivel {
 
         //COCINAR INGREDIENTES
         game.whenCollideDo(chef1, {mesa =>
-            if(mesasConSarten.contains(mesa) && chef1.objetoTransportado().esCocinable()){
-                chef1.objetoTransportado().cocinar()
-                game.say(chef1, "Lo cocino")
+            if(mesasConSarten.contains(mesa) && chef1.objetoTransportado() != null){
+                if(chef1.objetoTransportado().esCocinable()){
+                    chef1.objetoTransportado().cocinar()
+                    game.say(chef1, "Lo cocino")
+                }
             }
         })
 
         //ENTREGAR PLATO
         game.whenCollideDo(chef1, {mesa =>
             if(mesa == recepcion && platos.contains(chef1.objetoTransportado())){
-                game.say(chef1,"Pedido entregado!")
                 chef1.objetoTransportado().enMovimiento(false)
                 chef1.quitarObjeto()
             }
@@ -240,6 +247,7 @@ object nivel {
         game.whenCollideDo(recepcion, {plato =>
            if(platos.contains(plato)){
                 if(generarPedido.cumple(plato)){
+                    game.say(chef1,"Pedido entregado!")
                     game.onTick(500, "entregando", {plato.irse()})
                     plato.irse()
                     game.say(plato, "entregando")
@@ -252,8 +260,13 @@ object nivel {
                     generarPedido.quitar(plato)
                     
                 } else{
-                    game.say(plato, "plato mal hecho")
-                    game.schedule(2000, {game.removeVisual(plato)})
+                    game.say(chef1,"Pedido incorrecto!")
+                    //game.say(plato, "plato mal hecho")
+                    game.sound("error2.mp3").play()
+                    game.removeVisual(plato)
+                    chef1.perderVidas()
+                    vidas.get(chef1.vidas()).perderVida()
+                    //game.schedule(2000, {game.removeVisual(plato)})
                 }
            }
         })
@@ -261,7 +274,4 @@ object nivel {
         //GENERAR PEDIDOS
         keyboard.m().onPressDo{generarPedido.generar()}
     }
-
-    
 }
-

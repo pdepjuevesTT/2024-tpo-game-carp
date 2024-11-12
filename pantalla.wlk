@@ -1,13 +1,17 @@
 import wollok.game.*
+import chefs.*
+import escenario.*
+import menu.*
+import nivel.*
 
 /* object fin{
     const property position = game.origin()
 
-    var property image
+    var property imagen
 
-    method image(){
+    method imagen(){
         return
-        if(Chef.dinero() >= 2000){ // o por tiempo
+        if(marcadorDeDinero.dinero() >= 2000){ // o por tiempo
             //imagen victoria
         } else{
             //imagen derrota

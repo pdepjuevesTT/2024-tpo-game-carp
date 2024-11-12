@@ -167,3 +167,26 @@ object musica {
 	method play() {music.play()}
 	method stop() {music.stop()}
 }
+
+object paleta{
+    const property verde = "00FF00FF"
+    const property rojo = "FF0000FF"
+}
+
+object marcadorDeDinero{
+     var property dinero = 0
+
+     var property  position = game.at(1,18)
+
+     method agregarDinero(monto){ //Usar post hacer un pedido bien
+          dinero += monto
+     }
+
+     method restarDinero(monto){ //Usar post hacer un pedido mal
+          dinero -= monto
+     }
+
+     method text() = "Dinero: " + dinero.toString() + "$" // Mostrar cantidad de dinero, es general al completar un pedido
+
+     method textColor() = paleta.rojo()
+}
