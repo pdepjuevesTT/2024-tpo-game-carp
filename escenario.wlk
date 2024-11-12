@@ -157,3 +157,11 @@ object basura{
 object flag{
     method position() = game.at(5,5)
 }
+
+object musica {
+	const music = game.sound("musicaItalina.mp3")
+
+	method loop() {music.shouldLoop(true)}
+	method play() {music.play()}
+	method stop() {music.stop()}
+}

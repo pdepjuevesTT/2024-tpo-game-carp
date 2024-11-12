@@ -17,6 +17,10 @@ object nivel {
         //DINERO
         //game.addVisual(marcador)
 
+        //MUSICA
+        musica.loop()
+        musica.play()
+
         //MESADAS SIMPLES
         game.addVisual(mesadaSimple1)    
         game.addVisual(mesadaSimple2)
@@ -229,8 +233,6 @@ object nivel {
                 game.say(chef1,"Pedido entregado!")
                 chef1.objetoTransportado().enMovimiento(false)
                 chef1.quitarObjeto()
-                marcador.agregarDinero(Menu.recompensa())
-                game.addVisual(marcador)
             }
         })
 
