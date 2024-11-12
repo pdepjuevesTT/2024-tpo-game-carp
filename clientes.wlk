@@ -39,9 +39,6 @@ object generarPedido{
     var property pedido1 = null
     var property pedido2 = null
     var property pedido3 = null
-    var property libre1 = true
-    var property libre2 = true
-    var property libre3 = true
 
     method pedidoAleatorio(orden){
         if(orden == 1){
@@ -57,18 +54,15 @@ object generarPedido{
     }
 
     method generar(){
-        if(libre1){
+        if(pedido1 == null){
             self.pedidoAleatorio(1)
             game.addVisual(pedido1)
-            libre1 = false
-        } else if(libre2){
+        } else if(pedido2 == null){
             self.pedidoAleatorio(2)
             game.addVisual(pedido2)
-            libre2 = false
-        } else if(libre3){
+        } else if(pedido3 == null){
             self.pedidoAleatorio(3)
             game.addVisual(pedido3)
-            libre3 = false
         }
         pedidosDisponibles = #{pedido1, pedido2, pedido3}
     }
@@ -82,6 +76,14 @@ object generarPedido{
         return pedidosDisponibles.find({elemento => elemento.ingredientes() == plato.emplatado()})
     }
 
-    
+    method quitar(plato){
+        if(pedido1 == self.hallar(plato)){
+            pedido1 = null
+        } else if(pedido2 == self.hallar(plato)){
+            pedido2 = null
+        } else if(pedido3 == self.hallar(plato)){
+            pedido3 = null
+        }
+    }
 
 }

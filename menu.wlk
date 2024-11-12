@@ -8,35 +8,42 @@ class Menu{
     const property ingredientes
     const property recompensa
     const property tiempoDisponible
-    var property imagen
+    var property imagen = imagenSinEntregar
+    const property imagenSinEntregar
     const property imagenEntregada
     const property orden
     var property position
+    var property entregada = false
+
 
     method image() = imagen
+
+    method cambiarImagen() {
+        if (entregada) {
+            imagen = imagenEntregada
+        } else {
+            imagen = imagenSinEntregar
+        }
+    }
 
     method moverse() {
         position = position.left(1)
     }
-
-    method entregado(){
-        imagen = imagenEntregada
-    }
 }
 
-class MenuAdulto inherits Menu(imagen = "menuCompleto1.png",
+class MenuAdulto inherits Menu(imagenSinEntregar = "menuCompleto1.png",
                               imagenEntregada = "menuCompletoEntregada.png",
                               ingredientes = #{pan, carne, lechuga, tomate},
                               recompensa = 500,
                               tiempoDisponible = 50000){}
 
-class MenuJoven inherits Menu(imagen = "menuHamburguesaSola1.png",
+class MenuJoven inherits Menu(imagenSinEntregar = "menuHamburguesaSola1.png",
                              imagenEntregada = "menuHamburguesaSolaEntregada1.png",
                              ingredientes = #{pan, carne},
                              recompensa = 50,
                              tiempoDisponible = 3000){}
 
-class MenuAnciano inherits Menu(imagen = "MenuHamburguesaConLechuga1.png",
+class MenuAnciano inherits Menu(imagenSinEntregar = "MenuHamburguesaConLechuga1.png",
                                imagenEntregada = "MenuHamburguesaConLechugaEntregada.png",
                                ingredientes = #{pan, carne, lechuga},
                                recompensa = 100,
@@ -57,6 +64,8 @@ const pedidos = #{menuAdulto1, menuAdulto2, menuAdulto3 ,menuJoven1, menuJoven2,
 
 class Ingredientes inherits ObjetoMovible{
     var property sinPreparar = true
+    const property esCortable
+    const property esCocinable
 }
 
 class IngredientesCortables inherits Ingredientes {
@@ -73,16 +82,22 @@ class IngredientesCortables inherits Ingredientes {
 }
 
 const pan = new Ingredientes(imagen = "panChiquito.png",
-                            position = game.at(4,10))
+                            position = game.at(4,10),
+                            esCortable = false,
+                            esCocinable = false)
 
 
 const lechuga = new IngredientesCortables(imagen = "lechugaChiquita.png",
                                          imagenCortada = "lechugaCortada1.png",
-                                         position = game.at(4,8))
+                                         position = game.at(4,8),
+                                         esCortable = true,
+                                         esCocinable = false)
 
 const tomate = new IngredientesCortables(imagen = "tomateChiquito.png",
                                         imagenCortada = "tomateCortado1.png",
-                                        position = game.at(4,14))
+                                        position = game.at(4,14),
+                                        esCortable = true,
+                                        esCocinable = false)
 
 const ingredientesCortables = [lechuga, tomate, carne]
 
@@ -104,7 +119,9 @@ class Hamburguesa inherits IngredientesCortables{
 const carne = new Hamburguesa (imagen = "carne.png",
                               imagenCortada = "carneChiquita.png",
                               imagenCocinada = "carneCocida1.png",
-                              position = game.at(4,12))
+                              position = game.at(4,12),
+                              esCortable = true,
+                              esCocinable = true)
 
 class Plato inherits ObjetoMovible{
     var property emplatado = #{} //ingredientes que contiene un plato

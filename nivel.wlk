@@ -132,6 +132,7 @@ object nivel {
                     chef1.tomarObjeto(carne)
                     carne.imagen("carne.png")
                     carne.position(game.at(4,12))
+                    carne.cocinado(false)
                     game.addVisual(carne)
 
                 } else if (elemento == mesaTomate) {
@@ -150,8 +151,13 @@ object nivel {
                 game.say(chef1, "no tengo nada")
                 game.removeVisual(chef1.objetoTransportado())
                 chef1.objetoTransportado().sinPreparar(true)
-                chef1.objetoTransportado().cortado(false)
+                
+                //chef1.objetoTransportado().cocinado(false)
+                if (chef1.objetoTransportado().esCortable()){
+                    chef1.objetoTransportado().cortado(false)
+                }
                 chef1.quitarObjeto()
+
             }
         })
 
@@ -211,8 +217,8 @@ object nivel {
 
         //COCINAR INGREDIENTES
         game.whenCollideDo(chef1, {mesa =>
-            if(mesasConSarten.contains(mesa) && chef1.objetoTransportado() == carne){
-                carne.cocinar()
+            if(mesasConSarten.contains(mesa) && chef1.objetoTransportado().esCocinable()){
+                chef1.objetoTransportado().cocinar()
                 game.say(chef1, "Lo cocino")
             }
         })
@@ -234,9 +240,13 @@ object nivel {
                     game.onTick(500, "entregando", {plato.irse()})
                     plato.irse()
                     game.say(plato, "entregando")
-                    generarPedido.hallar(plato).entregado()//Achicar esta parte
+                    generarPedido.hallar(plato).entregada(true)
+                    generarPedido.hallar(plato).cambiarImagen()
                     game.sound("entregaExitosa.mp3").play()
-                    game.schedule(2000, {game.removeVisual(generarPedido.hallar(plato))})
+                    game.schedule(2000, {game.removeVisual(generarPedido.hallar(plato))
+                                         generarPedido.hallar(plato).cambiarImagen()})
+                    generarPedido.hallar(plato).entregada(false)         
+                    generarPedido.quitar(plato)
                     
                 } else{
                     game.say(plato, "plato mal hecho")
