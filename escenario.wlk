@@ -6,25 +6,23 @@ import menu.*
 //Mesadas Simples Frente
 class MesasSimples{
     const property position
-    var property ocupado = false
+    var property libre = true
 
     //Apoyar plato
     method apoyarPlato(platoMano){
-        if(platos.any{plato => plato == platoMano} && platoMano == chef1.objetoTransportado() && !ocupado){
+        if(libre){
             platoMano.position(self.position())
             game.whenCollideDo(chef1, game.addVisual(platoMano))
-            ocupado = true
+            libre = false
             game.say(self, "Plato apoyado correctamente.")
             chef1.quitarObjeto()
-        } else if(ocupado){
+        } else if(!libre){
             game.say(self, "Estoy ocupada")
-        } else{
-            game.say(self, "No tenes plato!")
         }
     }
 
     method mesadaVacia(){
-        return !ocupado //mesada deberia estar vacia para colocar algo encima
+        return libre //mesada deberia estar vacia para colocar algo encima
     }
 }
 

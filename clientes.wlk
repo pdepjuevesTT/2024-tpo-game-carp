@@ -81,7 +81,6 @@ object generarPedido{
         } else if(pedido3 == null){
             game.say(chef2, pedido1.nombre() + pedido2.nombre() + "nada")
         }*/
-        
     }
 
     method mostrarPedidos(){

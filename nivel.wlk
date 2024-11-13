@@ -169,7 +169,7 @@ object nivel {
                 game.say(chef1, "no tengo nada")
                 game.removeVisual(chef1.objetoTransportado())
                 chef1.objetoTransportado().sinPreparar(true)
-                
+
                 //chef1.objetoTransportado().cocinado(false)
                 if (chef1.objetoTransportado().esCortable()){
                     chef1.objetoTransportado().cortado(false)
@@ -189,7 +189,7 @@ object nivel {
 
         //AGARRAR PLATO
         game.whenCollideDo(chef1, { plato =>
-            if(platos.contains(plato)){
+            if(platos.contains(plato) && chef1.objetoTransportado() == null){
                 keyboard.space().onPressDo {
                     if(chef1.position() == plato.position()){
                         chef1.tomarObjeto(plato)
@@ -263,10 +263,10 @@ object nivel {
                     game.sound("entregaExitosa.mp3").play()
                     marcadorDeDinero.agregarDinero(generarPedido.hallar(plato).recompensa())
                     game.schedule(2000, {game.removeVisual(generarPedido.hallar(plato))
-                                         generarPedido.hallar(plato).cambiarImagen()
                                          generarPedido.hallar(plato).entregada(false)
+                                         generarPedido.hallar(plato).cambiarImagen()
                                          generarPedido.quitar(plato)})
-                    
+
 
                 } else{
                     game.say(chef1,"Pedido incorrecto!")
@@ -276,6 +276,15 @@ object nivel {
                     vidas.get(chef1.vidas()).perderVida()
                 }
            }
+        })
+
+        //APOYAR PLATO
+        game.whenCollideDo(chef1, {mesa =>
+            if((mesadasSimplesFrente.contains(mesa) || mesadasSimples.contains(mesa)) && platos.contains(chef1.objetoTransportado())){
+                keyboard.space().onPressDo{
+                    mesa.apoyarPlato(chef1.objetoTransportado())
+                }
+            }
         })
 
         //GENERAR PEDIDOS
