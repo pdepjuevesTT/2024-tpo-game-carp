@@ -1,3 +1,4 @@
+import movimiento.*
 //Archivo para niveles
 import wollok.game.*
 import chefs.*
@@ -6,23 +7,22 @@ import menu.*
 //Mesadas Simples Frente
 class MesasSimples{
     const property position
-    var property libre = true
+    var property platoApoyado = null
 
     //Apoyar plato
     method apoyarPlato(platoMano){
-        if(libre){
-            platoMano.position(self.position())
-            game.whenCollideDo(chef1, game.addVisual(platoMano))
-            libre = false
-            game.say(self, "Plato apoyado correctamente.")
+        //if(platoApoyado != null){
+            platoMano.enMovimiento(false)
+            platoApoyado = platoMano
+            game.say(chef1, "Plato apoyado correctamente.")
             chef1.quitarObjeto()
-        } else if(!libre){
-            game.say(self, "Estoy ocupada")
-        }
+        //} else {
+        //    game.say(chef2, "Estoy ocupada")
+        //}
     }
 
     method mesadaVacia(){
-        return libre //mesada deberia estar vacia para colocar algo encima
+        return platoApoyado == null //mesada deberia estar vacia para colocar algo encima
     }
 }
 
@@ -44,9 +44,8 @@ const mesadasSimplesFrente = [mesadaSimpleFrente1, mesadaSimpleFrente2, mesadaSi
                                 mesadaSimpleFrente4, mesadaSimpleFrente5]
 
 //MESADAS SIMPLES
-class MesadaSimple {
+class MesadaSimple inherits MesasSimples{
     method image() = "mesadaSimple.png"
-    var property position
 }
 
 
