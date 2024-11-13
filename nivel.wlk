@@ -213,12 +213,14 @@ object nivel {
             }
         })
 
-        //AGARRAR PLATO
+	//AGARRAR PLATO
         game.whenCollideDo(chef1, { plato =>
-            if(platos.contains(plato) && chef1.objetoTransportado() == null){
-                keyboard.space().onPressDo {
+            keyboard.space().onPressDo {
+                if(platos.contains(plato) && chef1.objetoTransportado() == null){
+                    game.say(chef2, "hola")
                     if(chef1.position() == plato.position()){
                         chef1.tomarObjeto(plato)
+                        plato.enMovimiento(true)
                         movimiento.seguirChef(plato, chef1)
                         game.removeVisual(plato)
                         game.addVisual(plato)
@@ -306,9 +308,12 @@ object nivel {
 
         //APOYAR PLATO
         game.whenCollideDo(chef1, {mesa =>
-            if((mesadasSimplesFrente.contains(mesa) || mesadasSimples.contains(mesa)) && platos.contains(chef1.objetoTransportado())){
-                keyboard.space().onPressDo{
-                    mesa.apoyarPlato(chef1.objetoTransportado())
+            keyboard.b().onPressDo{
+                if((mesadasSimplesFrente.contains(mesa) || mesadasSimples.contains(mesa)) && chef1.objetoTransportado() != null){
+                    if(platos.contains(chef1.objetoTransportado()) ){                       
+                        mesa.apoyarPlato(chef1.objetoTransportado())
+                    }
+                    else {game.say(chef2,"trghewhert")}
                 }
             }
         })
