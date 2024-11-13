@@ -20,11 +20,12 @@ class Clientes{
 }
 
 object generarPedido{
-    var property pedidosDisponibles = #{}
 
     var property pedido1 = null
     var property pedido2 = null
     var property pedido3 = null
+
+    var property pedidosDisponibles = #{pedido1, pedido2, pedido3}
 
     method pedidoAleatorio(orden){
         if(orden == 1){
@@ -53,7 +54,7 @@ object generarPedido{
         pedidosDisponibles = #{pedido1, pedido2, pedido3}
     }
 
-    method cumple(plato){
+    method esCorrecto(plato){
         return pedidosDisponibles.any({elemento => elemento != null &&
                                      elemento.ingredientes() == plato.emplatado()})
     }
@@ -69,7 +70,18 @@ object generarPedido{
             pedido2 = null
         } else if(pedido3 == self.hallar(plato)){
             pedido3 = null
+        } else {
+            game.say(chef2, "error")
         }
+
+        /*if(pedido1 == null){
+            game.say(chef2, "nada" + pedido2.nombre() + pedido3.nombre())
+        } else if(pedido2 == null){
+            game.say(chef2, pedido1.nombre() + "nada" + pedido3.nombre())
+        } else if(pedido3 == null){
+            game.say(chef2, pedido1.nombre() + pedido2.nombre() + "nada")
+        }*/
+        
     }
 
 }

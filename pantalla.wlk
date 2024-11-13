@@ -4,6 +4,11 @@ import escenario.*
 import menu.*
 import nivel.*
 
+object go{
+    method image() = "go.png"
+    var property position = game.at(15,10)
+}
+
 /* object fin{
     const property position = game.origin()
 

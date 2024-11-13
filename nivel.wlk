@@ -5,6 +5,7 @@ import ingredientes.*
 import escenario.*
 import menu.*
 import clientes.*
+import pantalla.*
 
 object nivel {
     method configurate(){
@@ -21,7 +22,9 @@ object nivel {
 
         //MUSICA
         musica.loop()
-        musica.play()
+        game.schedule(500,{musica.play()})
+
+
 
         //MESADAS SIMPLES
         game.addVisual(mesadaSimple1)
@@ -118,6 +121,10 @@ object nivel {
         //CHEF 2
 	    keyboard.a().onPressDo { chef2.imagen("chef8izq.png") }
 	    keyboard.d().onPressDo { chef2.imagen("chef8der.png") }
+
+        //GO
+        game.addVisual(go)
+        game.schedule(2000, {game.removeVisual(go)})
 
     }
 
@@ -246,7 +253,7 @@ object nivel {
 
         game.whenCollideDo(recepcion, {plato =>
            if(platos.contains(plato)){
-                if(generarPedido.cumple(plato)){
+                if(generarPedido.esCorrecto(plato)){
                     game.say(chef1,"Pedido entregado!")
                     game.onTick(500, "entregando", {plato.irse()})
                     plato.irse()
@@ -254,11 +261,13 @@ object nivel {
                     generarPedido.hallar(plato).entregada(true)
                     generarPedido.hallar(plato).cambiarImagen()
                     game.sound("entregaExitosa.mp3").play()
+                    marcadorDeDinero.agregarDinero(generarPedido.hallar(plato).recompensa())
                     game.schedule(2000, {game.removeVisual(generarPedido.hallar(plato))
-                                         generarPedido.hallar(plato).cambiarImagen()})
-                    generarPedido.hallar(plato).entregada(false)         
-                    generarPedido.quitar(plato)
+                                         generarPedido.hallar(plato).cambiarImagen()
+                                         generarPedido.hallar(plato).entregada(false)
+                                         generarPedido.quitar(plato)})
                     
+
                 } else{
                     game.say(chef1,"Pedido incorrecto!")
                     //game.say(plato, "plato mal hecho")
