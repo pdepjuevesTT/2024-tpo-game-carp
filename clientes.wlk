@@ -84,4 +84,9 @@ object generarPedido{
         
     }
 
+    method mostrarPedidos(){
+        game.schedule(2000, {self.generar()
+                            game.onTick(10000, "generar", {self.generar()})})
+    }
+
 }

@@ -270,17 +270,15 @@ object nivel {
 
                 } else{
                     game.say(chef1,"Pedido incorrecto!")
-                    //game.say(plato, "plato mal hecho")
                     game.sound("error2.mp3").play()
                     game.removeVisual(plato)
                     chef1.perderVidas()
                     vidas.get(chef1.vidas()).perderVida()
-                    //game.schedule(2000, {game.removeVisual(plato)})
                 }
            }
         })
 
         //GENERAR PEDIDOS
-        keyboard.m().onPressDo{generarPedido.generar()}
+        generarPedido.mostrarPedidos()
     }
 }
