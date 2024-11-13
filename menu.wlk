@@ -15,8 +15,7 @@ class Menu{
     const property orden
     var property position
     var property entregada = false
-    const property nombre
-
+    var property nombre
 
     method image() = imagen
 
@@ -31,6 +30,16 @@ class Menu{
     method moverse() {
         position = position.left(1)
     }
+
+    /* method crearMenu(numero){
+       pedidos.add(numero.times{nombre += self.cantidad(3)})
+    }
+
+    method modificarPositionX(){position = game.at(5,17)} */
+
+    /*     method cantidad(cant) = cant.times{x => x + 1}
+
+    method modX(cant) = cant.times{x => x + 5} */
 }
 
 class MenuAdulto inherits Menu(imagenSinEntregar = "menuCompleto1.png",
@@ -55,6 +64,7 @@ class MenuAnciano inherits Menu(imagenSinEntregar = "MenuHamburguesaConLechuga1.
                                nombre = "menuAnciano"){}
 
 //Buscar una forma para generar los objetos con un method
+
 const menuAdulto1 = new MenuAdulto(position = game.at(5,17), orden = 1)
 const menuAdulto2 = new MenuAdulto(position = game.at(10,17), orden = 2)
 const menuAdulto3 = new MenuAdulto(position = game.at(15,17), orden = 3)

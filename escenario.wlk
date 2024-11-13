@@ -46,7 +46,7 @@ const mesadasSimplesFrente = [mesadaSimpleFrente1, mesadaSimpleFrente2, mesadaSi
 //MESADAS SIMPLES
 class MesadaSimple {
     method image() = "mesadaSimple.png"
-    const property position
+    var property position
 }
 
 

@@ -24,41 +24,57 @@ object nivel {
         musica.loop()
         game.schedule(500,{musica.play()})
 
-
-
         //MESADAS SIMPLES
-        game.addVisual(mesadaSimple1)
-        game.addVisual(mesadaSimple2)
-        game.addVisual(mesadaSimple3)
-        game.addVisual(mesadaSimple4)
-        game.addVisual(mesadaSimple5)
-        game.addVisual(mesadaSimple6)
-        game.addVisual(mesadaSimple7)
-        game.addVisual(mesadaSimple8)
-        game.addVisual(mesadaSimple9)
-        game.addVisual(mesadaSimple10)
-        game.addVisual(mesadaSimple11)
-        game.addVisual(mesadaSimple12)
-        game.addVisual(mesadaSimple13)
-        game.addVisual(mesadaSimple14)
-        game.addVisual(mesadaSimple15)
-        game.addVisual(mesadaSimple16)
-        game.addVisual(mesadaSimple17)
-        game.addVisual(mesadaSimple18)
-        game.addVisual(mesadaSimple19)
-        game.addVisual(mesadaSimple20)
-        game.addVisual(mesadaSimple21)
-        game.addVisual(mesadaSimple22)
-        game.addVisual(mesadaSimple23)
-        game.addVisual(mesadaSimple24)
-        game.addVisual(mesadaSimple25)
-        game.addVisual(mesadaSimple26)
-        game.addVisual(mesadaSimple27)
-        game.addVisual(mesadaSimple28)
-        game.addVisual(mesadaSimple29)     
-        game.addVisual(mesadaSimple30)
+        //y=2
+        const mesadaSimple2 = #{4,6,10,14,18,20,22,24,26,28}
+        (2..30).forEach({x =>
+            if(mesadaSimple2.contains(x))
+                {game.addVisual(new MesadaSimple(position = game.at(x, 2)))}
+            })
+        //y=4
+        const mesadaSimple4 = #{14,18,28}
+        (12..30).forEach({x =>
+            if(mesadaSimple4.contains(x))
+                {game.addVisual(new MesadaSimple(position = game.at(x, 4)))}
+            })
+        //y=6
+        const mesadaSimple6 = #{4,14,18,28}
+        (2..30).forEach({x =>
+            if(mesadaSimple6.contains(x))
+                {game.addVisual(new MesadaSimple(position = game.at(x, 6)))}
+            })
+        //y=8
+        const mesadaSimple8 = #{14,16,18,28}
+        (2..30).forEach({x =>
+            if(mesadaSimple8.contains(x))
+                {game.addVisual(new MesadaSimple(position = game.at(x, 8)))}
+            })
+        //y=10
+        const mesadaSimple10 = #{28}
+        (2..30).forEach({x =>
+            if(mesadaSimple10.contains(x))
+                {game.addVisual(new MesadaSimple(position = game.at(x, 10)))}
+            })
+        //y=12
+        const mesadaSimple12 = #{28}
+        (2..30).forEach({x =>
+            if(mesadaSimple12.contains(x))
+                {game.addVisual(new MesadaSimple(position = game.at(x, 12)))}
+            })
+        //y=14
+        const mesadaSimple14 = #{14,18,28}
+        (2..30).forEach({x =>
+            if(mesadaSimple14.contains(x))
+                {game.addVisual(new MesadaSimple(position = game.at(x, 14)))}
+            })
+        //y=16
+        const mesadaSimple16 = #{4,14,18,28}
+        (2..30).forEach({x =>
+            if(mesadaSimple16.contains(x))
+                {game.addVisual(new MesadaSimple(position = game.at(x, 16)))}
+            })
 
-  
+
         //MESADAS SIMPLES DE FRENTE
         game.addVisual(mesadaSimpleFrente1)
         game.addVisual(mesadaSimpleFrente2)
