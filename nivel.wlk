@@ -84,7 +84,12 @@ object nivel {
 
 
         //MESAS CON SARTEN
-        game.addVisual(mesaConSarten1)
+/*         const mesaSarten = #{20,22,24,26}
+        (20..26).forEach({x =>
+            if(mesaSarten.contains(x))
+                {game.addVisual(new MesaConSarten(position = game.at(x, 16)))}
+        }) */
+     game.addVisual(mesaConSarten1)
         game.addVisual(mesaConSarten2)
         game.addVisual(mesaConSarten3)
         game.addVisual(mesaConSarten4)
@@ -97,6 +102,11 @@ object nivel {
         game.addVisual(mesaTomate)
 
         //MESAS CON CUCHILLO
+/*         const mesaCuchillo = #{8,12}
+        (8..12).forEach({x =>
+            if(mesaCuchillo.contains(x))
+                {game.addVisual(new MesaConCuchillo(position = game.at(x, 2)))}
+        }) */
         game.addVisual(mesaConCuchillo1)
         game.addVisual(mesaConCuchillo2)
 

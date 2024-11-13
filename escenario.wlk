@@ -129,6 +129,8 @@ const mesaTomate = new MesaDeIngrediente (imagen = "mesaTomate2.png", position =
 class MesaConCuchillo {
     method image() = "mesaConCuchillo.png"
     const property position
+
+    
 }
 
 const mesaConCuchillo1 = new MesaConCuchillo(position = game.at(8,2))
