@@ -3,6 +3,7 @@ import movimiento.*
 import wollok.game.*
 import chefs.*
 import menu.*
+import pantalla.*
 
 //Mesadas Simples Frente
 class MesasSimples{
@@ -22,7 +23,7 @@ class MesasSimples{
     }
 
     method mesadaVacia(){
-        return platoApoyado == null //mesada deberia estar vacia para colocar algo encima
+        return platoApoyado == null
     }
 }
 
@@ -48,10 +49,18 @@ class MesadaSimple inherits MesasSimples{
     method image() = "mesadaSimple.png"
 }
 
-
+    const posSimples2 = [4, 6, 10, 14, 18, 20, 22, 24, 26, 28]
+    const posSimples4 = [14,18,28]
+    const posSimples6 = [4,14,18,28]
+    const posSimples8 = [14,16,18,28]
+    const posSimples10 = [28]
+    const posSimples12 = [28]
+    const posSimples14 = [14,18,28]
+    const posSimples16 = [4,14,18,28]
 
 //Mesas Simples ordenadas de izquierda a derecha -> de abajo a arriba.
 //y=2
+
 const mesadaSimple1 = new MesadaSimple(position = game.at(4,2))
 const mesadaSimple2 = new MesadaSimple(position = game.at(6,2))
 const mesadaSimple3 = new MesadaSimple(position = game.at(10,2))
@@ -97,13 +106,18 @@ const mesadasSimples = [mesadaSimple1, mesadaSimple2, mesadaSimple3, mesadaSimpl
     mesadaSimple21, mesadaSimple22, mesadaSimple23, mesadaSimple24, mesadaSimple25,
     mesadaSimple26, mesadaSimple27, mesadaSimple28, mesadaSimple29, mesadaSimple30]
 
-const todasLasMesadas = mesadasSimples + mesadasSimplesFrente
+/* const mesadasSimp = [mesadaSimple2, mesadaSimple4, mesadaSimple6, mesadaSimple8, mesadaSimple10, mesadaSimple12, mesadaSimple14, mesadaSimple16]
+const allMesadas = mesadasSimp + mesadasSimplesFrente
+
+const todasLasMesadas = mesadasSimples + mesadasSimplesFrente */ //No se usa
 
 // MESAS CON SARTEN
 class MesaConSarten {
     method image() = "mesaConSarten.png"
     const property position
 }
+
+const posSarten = [20,22,24,26]
 
 const mesaConSarten1 = new MesaConSarten(position = game.at(20,16))
 const mesaConSarten2 = new MesaConSarten(position = game.at(22,16))
@@ -128,9 +142,8 @@ const mesaTomate = new MesaDeIngrediente (imagen = "mesaTomate2.png", position =
 class MesaConCuchillo {
     method image() = "mesaConCuchillo.png"
     const property position
-
-    
 }
+const posCuchillos = [8,12]
 
 const mesaConCuchillo1 = new MesaConCuchillo(position = game.at(8,2))
 const mesaConCuchillo2 = new MesaConCuchillo(position = game.at(12,2))
@@ -143,10 +156,29 @@ object recepcion {
     const property position = game.at(28,8)
 }
 
+//MESA DE LOS PLATOS
+/*object mesaPlato {
+    method image() = "mesaPlatos3.png"
+    const property position = game.at(28,6)
+
+    method devolverPlato(plato){
+        plato.limpio(false)
+        plato.vaciar()
+        plato.cambiarImagen()
+        plato.position(self.position())
+        game.addVisual(plato)
+    }
+}*/
+
 // PILETA
 object pileta {
     method image() = "pileta.png"
     const property position = game.at(8,16)
+
+    method lavar(plato){
+        plato.limpio(true)
+        plato.cambiarImagen()
+    }
 }
 
 // BASURA
@@ -175,6 +207,10 @@ object marcadorDeDinero{
 
      method agregarDinero(monto){ //Usar post hacer un pedido bien
           dinero += monto
+          if(dinero >= 100){
+            game.say(chef2, "ganamos")
+            fin.victoria()
+          }
      }
 
      method restarDinero(monto){ //Usar post hacer un pedido mal

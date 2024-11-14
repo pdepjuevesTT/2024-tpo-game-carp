@@ -65,6 +65,9 @@ class MenuAnciano inherits Menu(imagenSinEntregar = "MenuHamburguesaConLechuga1.
 
 //Buscar una forma para generar los objetos con un method
 
+const posMenu = [5,10,17]
+const ordenes = [1,2,3]
+
 const menuAdulto1 = new MenuAdulto(position = game.at(5,17), orden = 1)
 const menuAdulto2 = new MenuAdulto(position = game.at(10,17), orden = 2)
 const menuAdulto3 = new MenuAdulto(position = game.at(15,17), orden = 3)
@@ -79,11 +82,24 @@ const pedidos = #{menuAdulto1, menuAdulto2, menuAdulto3 ,menuJoven1, menuJoven2,
 
 class Plato inherits ObjetoMovible{
     var property emplatado = #{} //ingredientes que contiene un plato
+    var property limpio = true
 
     method completo(menu) = self.emplatado().all(menu.ingredientes())
 
     method agregarIngrediente(ingrediente){
         emplatado.add(ingrediente)
+    }
+
+    method cambiarImagen(){
+        if(limpio){
+            imagen = "plato2.png"
+        } else {
+            imagen = "platoSucio.png"
+        }
+    }
+
+    method vaciar(){
+        emplatado = #{}
     }
 
     method mostrarPlato(){
@@ -124,7 +140,6 @@ class Plato inherits ObjetoMovible{
         position = position.right(1)
     }
 }
-
 
 const plato1 = new Plato(imagen = "plato2.png",
                         position = game.at(20,2))

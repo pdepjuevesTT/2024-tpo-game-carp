@@ -2,6 +2,8 @@
 import wollok.game.*
 import nivel.*
 import movimiento.*
+import pantalla.*
+
 class Chef inherits ObjetoMovible{
     var property dinero = 0
     var property objetoTransportado = null
@@ -23,6 +25,9 @@ class Chef inherits ObjetoMovible{
 
    method perderVidas(){
       vidas = vidas - 1
+      if(vidas == 0){
+          fin.derrota()
+      }
    }
 
      /*method pedidoCompletado(plato){

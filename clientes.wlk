@@ -3,20 +3,19 @@ import chefs.*
 import nivel.*
 //Archivo para clientes, tipos de clientes
 import wollok.game.*
-class Clientes{
+
+class Clientes{ //No se usa
     method hacerPedido()
 
-    method recibirPedido(plato){
+/*     method recibirPedido(plato){
         if(plato.completo() //plato con todos los ingredientes de un menu
         && Clientes.hacerPedido().ingredientes() == plato.emplatado()){ //plato con los ingredientes del tipo de cliente
             chef1.dinero() + self.hacerPedido().recompensa()
         } else{
             chef1.say(chef1,"Falta x ingrediente")
         }
-    }
+    } */ // No se usa
 
-    method eliminarPedido(menu){
-    }
 }
 
 object generarPedido{
@@ -87,5 +86,4 @@ object generarPedido{
         game.schedule(2000, {self.generar()
                             game.onTick(10000, "generar", {self.generar()})})
     }
-
 }

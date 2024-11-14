@@ -42,13 +42,41 @@ object inicio {
 
 object fin{
     const property position = game.origin()
+    var property gana = null
+    var property imagen = null
 
-    var property imagen = ""
+    method image() = imagen
 
     method imagen() =
-        if(marcadorDeDinero.dinero() >= 1000){ // o por tiempo
-            //imagen victoria
+        if(gana){ 
+            imagen = "victoria2.png"
         } else{
-            //imagen derrota
+            imagen = "derrota3.png"
         }
+
+    method victoria(){
+
+        gana = true
+        self.imagen()
+        game.addVisual(self)
     }
+
+    method derrota(){
+        gana = false
+        self.imagen()
+        game.addVisual(self)
+    }
+
+    method juegoTerminado(victoria){
+        if(victoria){
+            gana = true
+        } else {
+            gana = false
+        }
+        self.imagen()
+        musica.stop()
+        game.removeTickEvent("generar")
+        
+        game.addVisual(self)
+    }
+}

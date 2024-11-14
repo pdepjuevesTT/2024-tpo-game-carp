@@ -76,6 +76,18 @@ object nivel {
 
 
         //MESADAS SIMPLES DE FRENTE
+/*         const mesadaFrente12 = #{14,16,18}
+        (14..18).forEach({x =>
+            if(mesadaFrente12.contains(x))
+                {game.addVisual(new MesadaSimpleFrente(position = game.at(x, 12)))}
+            }) */
+
+/*         const mesadaFrente16 = #{6,12}
+        (14..18).forEach({x =>
+            if(mesadaFrente16.contains(x))
+                {game.addVisual(new MesadaSimpleFrente(position = game.at(x, 16)))}
+            }) */
+
         game.addVisual(mesadaSimpleFrente1)
         game.addVisual(mesadaSimpleFrente2)
         game.addVisual(mesadaSimpleFrente3)
@@ -89,7 +101,7 @@ object nivel {
             if(mesaSarten.contains(x))
                 {game.addVisual(new MesaConSarten(position = game.at(x, 16)))}
         }) */
-     game.addVisual(mesaConSarten1)
+        game.addVisual(mesaConSarten1)
         game.addVisual(mesaConSarten2)
         game.addVisual(mesaConSarten3)
         game.addVisual(mesaConSarten4)
@@ -109,6 +121,9 @@ object nivel {
         }) */
         game.addVisual(mesaConCuchillo1)
         game.addVisual(mesaConCuchillo2)
+
+        //MESA PLATOS
+    //    game.addVisual(mesaPlato)
 
         //PILETA
         game.addVisual(pileta)
@@ -152,6 +167,9 @@ object nivel {
         game.addVisual(go)
         game.schedule(2000, {game.removeVisual(go)})
 
+        game.addVisual(fin)
+
+        
     }
 
     method interacciones(){
@@ -215,8 +233,9 @@ object nivel {
 
 	//AGARRAR PLATO
         game.whenCollideDo(chef1, { plato =>
-            keyboard.space().onPressDo {
-                if(platos.contains(plato) && chef1.objetoTransportado() == null){
+            
+            if(platos.contains(plato) && chef1.objetoTransportado() == null){
+                keyboard.space().onPressDo {
                     game.say(chef2, "hola")
                     if(chef1.position() == plato.position()){
                         chef1.tomarObjeto(plato)
@@ -294,7 +313,7 @@ object nivel {
                                          generarPedido.hallar(plato).entregada(false)
                                          generarPedido.hallar(plato).cambiarImagen()
                                          generarPedido.quitar(plato)})
-
+     //               game.schedule(10000, {mesaPlato.devolverPlato(plato)})
 
                 } else{
                     game.say(chef1,"Pedido incorrecto!")
@@ -310,7 +329,7 @@ object nivel {
         game.whenCollideDo(chef1, {mesa =>
             keyboard.b().onPressDo{
                 if((mesadasSimplesFrente.contains(mesa) || mesadasSimples.contains(mesa)) && chef1.objetoTransportado() != null){
-                    if(platos.contains(chef1.objetoTransportado()) ){                       
+                    if(platos.contains(chef1.objetoTransportado()) ){
                         mesa.apoyarPlato(chef1.objetoTransportado())
                     }
                     else {game.say(chef2,"trghewhert")}
@@ -318,7 +337,50 @@ object nivel {
             }
         })
 
+        //LAVAR PLATOS
+        game.whenCollideDo(chef1, {mesa =>
+        if(mesa == pileta && platos.contains(chef1.objetoTransportado())){
+            pileta.lavar(chef1.objetoTransportado())
+        }
+        })
+
         //GENERAR PEDIDOS
         generarPedido.mostrarPedidos()
     }
+
+    method crearMesadasSimples(posiciones, y){
+        posiciones.forEach({posicion =>
+            const mesadaSimple = new MesadaSimple(position = game.at(posicion, y))})
+    }
+
+    method crearMesadasFrente(posiciones, y){
+        posiciones.forEach({posicion =>
+            const mesadaSimpleFrente = new MesadaSimpleFrente(position = game.at(posicion, y))})
+    }
+
+    method crearMesadasSarten(posiciones, y){
+        posiciones.forEach({posicion =>
+            const mesaConSarten = new MesaConSarten(position = game.at(posicion, y))})
+    }
+
+    method crearMesaCuchillo(posiciones, y){
+        posiciones.forEach({posicion =>
+            const mesaConCuchillo = new MesaConCuchillo(position = game.at(posicion, y))})
+    }
+
+    method crearMenuAdulto(ordenes, posicionesX){
+        posicionesX.forEachWithIndex({posicion, index =>
+            const menuAdulto = new MenuAdulto(position = game.at(posicion, 17), orden = ordenes.get(index))})
+    }
+
+        method crearMenuJoven(ordenes, posicionesX){
+        posicionesX.forEachWithIndex({posicion, index =>
+            const menuJoven = new MenuJoven(position = game.at(posicion, 17), orden = ordenes.get(index))})
+    }
+
+        method crearMenuAnciano(ordenes, posicionesX){
+        posicionesX.forEachWithIndex({posicion, index =>
+            const menuAnciano = new MenuAnciano(position = game.at(posicion, 17), orden = ordenes.get(index))})
+    }
+
 }
