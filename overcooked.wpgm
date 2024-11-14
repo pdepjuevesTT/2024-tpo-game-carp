@@ -13,18 +13,6 @@ program overcooked{
     nivel.configurate()
     nivel.interacciones()
 
-    //nivel.crearMesadasSimples(posSimples2, 2)
-    //nivel.crearMesadasSimples(posSimples4, 4)
-    //nivel.crearMesadasSimples(posSimples6, 6)
-    //nivel.crearMesadasSimples(posSimples8, 8)
-    //nivel.crearMesadasSimples(posSimples10, 10)
-    //nivel.crearMesadasSimples(posSimples12, 12)
-    //nivel.crearMesadasSimples(posSimples14, 14)
-    //nivel.crearMesadasSimples(posSimples16, 16)
-
-    //nivel.crearMesadasSarten(posSarten, 16)
-    //nivel.crearMesaCuchillo(posCuchillos, 2)
-
     movimiento.flechas(chef1)
     //movimiento.wasd(chef2)
 
@@ -34,4 +22,17 @@ program overcooked{
     movimiento.seguirChef(tomate, chef1)
 
     game.start()
+
+/*  //nivel.crearMesadasSimples(posSimples2, 2)
+    //nivel.crearMesadasSimples(posSimples4, 4)
+    //nivel.crearMesadasSimples(posSimples6, 6)
+    //nivel.crearMesadasSimples(posSimples8, 8)
+    //nivel.crearMesadasSimples(posSimples10, 10)
+    //nivel.crearMesadasSimples(posSimples12, 12)
+    //nivel.crearMesadasSimples(posSimples14, 14)
+    //nivel.crearMesadasSimples(posSimples16, 16)
+
+    //nivel.crearMesadasSarten(posSarten, 16)
+    //nivel.crearMesaCuchillo(posCuchillos, 2) */
+
 }

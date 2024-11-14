@@ -136,7 +136,7 @@ class MesaDeIngrediente {
 
     method generar(chef, ingrediente){
         chef.tomarObjeto(ingrediente)
-	ingrediente.sinPreparar(true)
+	    ingrediente.sinPreparar(true)
         ingrediente.imagen(imagenIngrediente)
         ingrediente.position(position)
         game.addVisual(ingrediente)

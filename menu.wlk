@@ -35,11 +35,7 @@ class Menu{
        pedidos.add(numero.times{nombre += self.cantidad(3)})
     }
 
-    method modificarPositionX(){position = game.at(5,17)} */
-
-    /*     method cantidad(cant) = cant.times{x => x + 1}
-
-    method modX(cant) = cant.times{x => x + 5} */
+    */
 }
 
 class MenuAdulto inherits Menu(imagenSinEntregar = "menuCompleto1.png",
