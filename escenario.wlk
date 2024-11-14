@@ -229,6 +229,7 @@ object marcadorDeDinero{
      var property  position = game.at(1,18)
 
      method agregarDinero(monto){
+            dinero += monto
           if(dinero >= 500){
             //game.say(chef2, "ganamos")
             fin.juegoTerminado(true)
@@ -244,7 +245,7 @@ object marcadorDeDinero{
 }
 
 object reloj{
-    var  property contador = 120
+    var  property contador = 150
     var property position = game.at(1,16)
     method text() = "Tiempo: " + contador.toString()
     method textColor() = paleta.rojo()
