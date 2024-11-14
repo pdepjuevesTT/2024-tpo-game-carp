@@ -26,7 +26,7 @@ class Chef inherits ObjetoMovible{
    method perderVidas(){
       vidas = vidas - 1
       if(vidas == 0){
-          fin.derrota()
+          fin.juegoTerminado(false)
       }
    }
 

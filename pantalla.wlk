@@ -1,3 +1,4 @@
+import clientes.*
 import wollok.game.*
 import chefs.*
 import escenario.*
@@ -54,29 +55,20 @@ object fin{
             imagen = "derrota3.png"
         }
 
-    method victoria(){
-
-        gana = true
-        self.imagen()
-        game.addVisual(self)
-    }
-
-    method derrota(){
-        gana = false
-        self.imagen()
-        game.addVisual(self)
-    }
-
     method juegoTerminado(victoria){
         if(victoria){
             gana = true
+            game.sound("ganar.mp3").play()
         } else {
             gana = false
+            game.sound("perder.mp3").play()
         }
         self.imagen()
         musica.stop()
         game.removeTickEvent("generar")
-        
+        generarPedido.borrarPedidos()
+        generarPedido.borrarPlatos()
+
         game.addVisual(self)
     }
 }

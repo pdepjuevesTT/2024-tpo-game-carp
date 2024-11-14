@@ -209,7 +209,7 @@ object marcadorDeDinero{
           dinero += monto
           if(dinero >= 100){
             game.say(chef2, "ganamos")
-            fin.victoria()
+            fin.juegoTerminado(true)
           }
      }
 

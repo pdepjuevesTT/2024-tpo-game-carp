@@ -236,7 +236,6 @@ object nivel {
             
             if(platos.contains(plato) && chef1.objetoTransportado() == null){
                 keyboard.space().onPressDo {
-                    game.say(chef2, "hola")
                     if(chef1.position() == plato.position()){
                         chef1.tomarObjeto(plato)
                         plato.enMovimiento(true)

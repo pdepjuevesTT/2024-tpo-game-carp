@@ -23,17 +23,17 @@ object movimiento{
 
     method flechas(personaje){
         keyboard.up().onPressDo { if(personaje.position().y()==11 && personaje.position().x()>=13 && personaje.position().x()<=18){/*Nada*/} else{ personaje.move(personaje.position().up(1))} }
-	keyboard.down().onPressDo {if(personaje.position().y()==10 && personaje.position().x()>=13 && personaje.position().x()<=18){/*Nada*/} else{ personaje.move(personaje.position().down(1))} }
-	keyboard.left().onPressDo { if(personaje.position().x()==19 && personaje.position().y()<10 && personaje.position().y()>11){/*Nada*/} else{ personaje.move(personaje.position().left(1))}  }
+	    keyboard.down().onPressDo {if(personaje.position().y()==10 && personaje.position().x()>=13 && personaje.position().x()<=18){/*Nada*/} else{ personaje.move(personaje.position().down(1))} }
+	    keyboard.left().onPressDo { if(personaje.position().x()==19 && personaje.position().y()<10 && personaje.position().y()>11){/*Nada*/} else{ personaje.move(personaje.position().left(1))}  }
         keyboard.right().onPressDo { if(personaje.position().x()==13 && personaje.position().y()<10 && personaje.position().y()>11){/*Nada*/} else{ personaje.move(personaje.position().right(1))} }
     }
 
     method wasd(personaje){
         keyboard.w().onPressDo { if(personaje.position().y()==11 && personaje.position().x()>=13 && personaje.position().x()<=18){/*Nada*/} else{ personaje.move(personaje.position().up(1))}  }
-	keyboard.s().onPressDo { if(personaje.position().y()==10 && personaje.position().x()>=13 && personaje.position().x()<=18){/*Nada*/} else{ personaje.move(personaje.position().down(1))} }
-	keyboard.a().onPressDo { if(personaje.position().x()==19 && personaje.position().y()<10 && personaje.position().y()>11){/*Nada*/} else{ personaje.move(personaje.position().left(1))}  }
-	keyboard.d().onPressDo { if(personaje.position().x()==13 && personaje.position().y()<10 && personaje.position().y()>11){/*Nada*/} else{ personaje.move(personaje.position().right(1))} }
-    }
+	    keyboard.s().onPressDo { if(personaje.position().y()==10 && personaje.position().x()>=13 && personaje.position().x()<=18){/*Nada*/} else{ personaje.move(personaje.position().down(1))} }
+	    keyboard.a().onPressDo { if(personaje.position().x()==19 && personaje.position().y()<10 && personaje.position().y()>11){/*Nada*/} else{ personaje.move(personaje.position().left(1))}  }
+	    keyboard.d().onPressDo { if(personaje.position().x()==13 && personaje.position().y()<10 && personaje.position().y()>11){/*Nada*/} else{ personaje.move(personaje.position().right(1))} }
+    } 
 
 //HASTA ACA (Abajo esta mejorado)
 
@@ -55,7 +55,7 @@ object movimiento{
 
 //MOVIMIENTO MEJORADO
 
-/*
+
     const zonasRestringidas = [
         [0,0,3,19], 
         [30,0,39,19], 
@@ -64,7 +64,7 @@ object movimiento{
         [14,12,19,17], 
         [14,2,19,9]
     ]
-
+/*
     method estaRestringido (x,y){
         return zonasRestringidas.any{zona ->
             x>=zona[0] && x<=zona[2] && y>=zona[1] && y<=zona[3] 
@@ -105,5 +105,5 @@ object movimiento{
             intentarMover(personaje,personaje.position().right(1))
        }
     }
-*/
 
+*/

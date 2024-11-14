@@ -13,7 +13,6 @@ program overcooked{
     nivel.configurate()
     nivel.interacciones()
 
-    
     //nivel.crearMesadasSimples(posSimples2, 2)
     //nivel.crearMesadasSimples(posSimples4, 4)
     //nivel.crearMesadasSimples(posSimples6, 6)

@@ -86,4 +86,18 @@ object generarPedido{
         game.schedule(2000, {self.generar()
                             game.onTick(10000, "generar", {self.generar()})})
     }
+
+    method borrarPedidos(){
+        game.removeVisual(pedido1)
+        game.removeVisual(pedido2)
+        game.removeVisual(pedido3)
+    }
+
+    method borrarPlatos(){
+        game.removeVisual(plato1)
+        game.removeVisual(plato2)
+        game.removeVisual(plato3)
+        game.removeVisual(plato4)
+        game.removeVisual(plato5)
+    }
 }
