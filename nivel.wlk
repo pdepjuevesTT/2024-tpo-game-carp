@@ -174,38 +174,28 @@ object nivel {
 
     method interacciones(){
         //AGARRAR INGREDIENTES
-        game.whenCollideDo(chef1, {elemento =>
+        game.whenCollideDo(chef1, {mesa =>
             if(chef1.objetoTransportado() == null){
-                if (elemento == mesaLechuga) {
-                    game.say(chef1, "tengo una lechuga")
-                    chef1.tomarObjeto(lechuga)
-                    lechuga.imagen("lechugaChiquita.png")
-                    lechuga.position(game.at(4,8))
-                    game.addVisual(lechuga)
+                if (mesa == mesaLechuga) {
+                    //game.say(chef1, "tengo una lechuga")
+                    mesa.generar(chef1, lechuga)
+                    
+                } else if (mesa == mesaPan) {
+                    //game.say(chef1, "tengo un pan")
+                    mesa.generar(chef1, pan)
 
-                } else if (elemento == mesaPan) {
-                    game.say(chef1, "tengo un pan")
-                    chef1.tomarObjeto(pan)
-                    pan.position(game.at(4,10))
-                    game.addVisual(pan)
-
-                } else if (elemento == mesaCarne) {
-                    game.say(chef1, "tengo una carne")
-                    chef1.tomarObjeto(carne)
-                    carne.imagen("carne.png")
-                    carne.position(game.at(4,12))
+                } else if (mesa == mesaCarne) {
+                    //game.say(chef1, "tengo una carne")
                     carne.cocinado(false)
-                    game.addVisual(carne)
-
-                } else if (elemento == mesaTomate) {
-                    game.say(chef1, "tengo un tomate")
-                    chef1.tomarObjeto(tomate)
-                    tomate.imagen("tomateChiquito.png")
-                    tomate.position(game.at(4,14))
-                    game.addVisual(tomate)
+                    mesa.generar(chef1, carne)
+                    
+                } else if (mesa == mesaTomate) {
+                    //game.say(chef1, "tengo un tomate")
+                    mesa.generar(chef1, tomate)
                 }
             }
         })
+
 
         //QUITAR OBJETO
         game.whenCollideDo(chef1, { elemento =>

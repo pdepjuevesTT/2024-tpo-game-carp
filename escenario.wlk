@@ -11,20 +11,20 @@ class MesasSimples{
     var property platoApoyado = null
 
     //Apoyar plato
-    method apoyarPlato(platoMano){
-        //if(platoApoyado != null){
+    /*method apoyarPlato(platoMano){
+        if(platoApoyado != null){
             platoMano.enMovimiento(false)
             platoApoyado = platoMano
             game.say(chef1, "Plato apoyado correctamente.")
             chef1.quitarObjeto()
-        //} else {
-        //    game.say(chef2, "Estoy ocupada")
-        //}
+        } else {
+            game.say(chef2, "Estoy ocupada")
+        }
     }
 
     method mesadaVacia(){
         return platoApoyado == null
-    }
+    }*/
 }
 
 // MESAS SIMPLES DE FRENTE
@@ -129,15 +129,32 @@ const mesasConSarten = [mesaConSarten1, mesaConSarten2, mesaConSarten3, mesaConS
 // MESAS DE INGREDIENTES
 class MesaDeIngrediente {
     const imagen
+    const imagenIngrediente
     method image() = imagen
     const property position
-    //Agarrar ingrediente
+    
+    method generar(chef, ingrediente){
+        chef.tomarObjeto(ingrediente)
+        ingrediente.imagen(imagenIngrediente)
+        ingrediente.position(position)
+        game.addVisual(ingrediente)
+    }
 }
 
-const mesaLechuga = new MesaDeIngrediente(imagen = "mesaLechuga.png", position = game.at(4,8))
-const mesaPan = new MesaDeIngrediente(imagen = "mesaPan.png", position = game.at(4,10))
-const mesaCarne = new MesaDeIngrediente (imagen = "mesaCarne3.png", position = game.at(4,12))
-const mesaTomate = new MesaDeIngrediente (imagen = "mesaTomate2.png", position = game.at(4,14))
+const mesaLechuga = new MesaDeIngrediente(imagen = "mesaLechuga.png", 
+                                         imagenIngrediente = "lechugaChiquita.png",
+                                         position = game.at(4,8))
+const mesaPan = new MesaDeIngrediente(imagen = "mesaPan.png", 
+                                     imagenIngrediente = "panChiquito.png",
+                                     position = game.at(4,10))
+const mesaCarne = new MesaDeIngrediente (imagen = "mesaCarne3.png",
+                                        imagenIngrediente = "carne.png",
+                                        position = game.at(4,12))
+const mesaTomate = new MesaDeIngrediente (imagen = "mesaTomate2.png", 
+                                         imagenIngrediente = "tomateChiquito.png",
+                                         position = game.at(4,14))
+
+const mesasConIngredientes = [mesaLechuga, mesaPan, mesaCarne, mesaTomate]
 
 class MesaConCuchillo {
     method image() = "mesaConCuchillo.png"
@@ -207,7 +224,7 @@ object marcadorDeDinero{
 
      method agregarDinero(monto){ //Usar post hacer un pedido bien
           dinero += monto
-          if(dinero >= 100){
+          if(dinero >= 500){
             game.say(chef2, "ganamos")
             fin.juegoTerminado(true)
           }

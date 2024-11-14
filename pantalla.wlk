@@ -7,7 +7,7 @@ import nivel.*
 
 object go{
     method image() = "go.png"
-    var property position = game.at(15,10)
+    var property position = game.at(15,8)
 }
 
 object pantalla{

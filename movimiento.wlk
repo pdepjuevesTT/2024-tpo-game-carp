@@ -43,13 +43,6 @@ object movimiento{
 	    keyboard.left().onPressDo { elemento.move(chef.position()) }
 	    keyboard.right().onPressDo { elemento.move(chef.position()) }
     }
-
-    method quedarseQuieto(elemento){
-        keyboard.up().onPressDo {elemento.move(elemento.position().right(1))}
-	    keyboard.down().onPressDo {elemento.move(elemento.position().right(1))}
-	    keyboard.left().onPressDo {elemento.move(elemento.position().right(1))}
-	    keyboard.right().onPressDo {elemento.move(elemento.position().right(1))}
-    }
 }
 
 

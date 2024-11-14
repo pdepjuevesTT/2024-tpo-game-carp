@@ -45,7 +45,7 @@ class Menu{
 class MenuAdulto inherits Menu(imagenSinEntregar = "menuCompleto1.png",
                               imagenEntregada = "menuCompletoEntregada.png",
                               ingredientes = #{pan, carne, lechuga, tomate},
-                              recompensa = 500,
+                              recompensa = 200,
                               tiempoDisponible = 50000,
                               nombre = "menuAdulto"){}
 
