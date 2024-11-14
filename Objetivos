@@ -1,0 +1,21 @@
+Objetivos: 
+-Hacer menu para personajes (No se porque no funciona)
+-Limitar movimientos dentro de la cocina
+-Poner muros 
+-Hacer entrega y recepcion de pedidos
+-Hacer lo de la plata
+-Mostrar la plata
+-Hacer pantalla Game Over
+-Hacer que si esta mal/incompleto se elimine el pedido, acumule vidas hasta 3 y reste plata
+-Hacer que perdamos al llegar a las 3 vidas.
+-Poner musiquita 
+-Hacer funcional al chef 2
+-Hacer que al entregar plato se elimine 
+-Usar funcion anyOne() para menu de comidas
+-Hacer que reciba el plato sucio y hay que lavarlo. Y ahi arranca
+-Agrandar espacio de entrega
+
+Capaz
+-Detallas exteriores como la calle, una mesa al lado, arboles, qcyo (Si llegamos)
+-Hacer que la carne tarde 5 segundos en cocinarse y mas de 5 se quema
+-Hacer mas prolijo el codigo
