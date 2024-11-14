@@ -48,15 +48,9 @@ object fin{
 
     method image() = imagen
 
-    method text() = "Dinero: " + marcadorDeDinero.dinero().toString() + "$" // Mostrar cantidad de dinero, es general al completar un pedido
-
-     method textColor() = paleta.rojo()
-
     method imagen() =
         if(gana){
             imagen = "victoria2.png"
-            self.text()
-
         } else{
             imagen = "derrota3.png"
         }
@@ -73,7 +67,15 @@ object fin{
         game.removeTickEvent("generar")
         generarPedido.borrarPedidos()
         generarPedido.borrarPlatos()
-
         game.addVisual(self)
+        if(gana){
+            dineroFinal.text()
+        }
     }
+}
+
+object dineroFinal{
+    method position() = game.at(15,10)
+    method textColor() = paleta.rojo()
+    method text() = "Dinero: " + marcadorDeDinero.dinero().toString() + "$"
 }

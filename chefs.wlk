@@ -40,8 +40,8 @@ class Chef inherits ObjetoMovible{
 }
 
 const chef1 = new Chef(position = game.at(7,8), imagen = "chef8der.png")
-const chef2 = new Chef(position = game.at(24,8), imagen = "chef8izq.png")
-const chefs = [chef1, chef2]
+//const chef2 = new Chef(position = game.at(24,8), imagen = "chef8izq.png")
+const chefs = [chef1]
 
 
 class Vidas{

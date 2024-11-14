@@ -229,7 +229,7 @@ object marcadorDeDinero{
      method agregarDinero(monto){ //Usar post hacer un pedido bien
           dinero += monto
           if(dinero >= 500){
-            game.say(chef2, "ganamos")
+            //game.say(chef2, "ganamos")
             fin.juegoTerminado(true)
           }
      }
@@ -241,4 +241,18 @@ object marcadorDeDinero{
      method text() = "Dinero: " + dinero.toString() + "$" // Mostrar cantidad de dinero, es general al completar un pedido
 
      method textColor() = paleta.rojo()
+}
+
+object reloj{
+    var  property contador = 120
+    var property position = game.at(1,16)
+    method text() = "Tiempo: " + contador.toString()
+    method textColor() = paleta.rojo()
+    method mostrar(){
+        contador = contador - 1
+        self.text()
+        if(contador == 0){
+            fin.juegoTerminado(false)
+        }
+    }
 }

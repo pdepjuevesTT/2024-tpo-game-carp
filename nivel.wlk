@@ -20,6 +20,10 @@ object nivel {
         game.addVisual(marcadorDeDinero) //Funciona?
         marcadorDeDinero.text()//Funciona?
 
+        //RELOJ
+        game.addVisual(reloj)
+        game.onTick(1000, "tiempo", {reloj.mostrar()})
+
         //MUSICA
         musica.loop()
         game.schedule(500,{musica.play()})
@@ -159,15 +163,15 @@ object nivel {
         const chefs = [chef1, chef2] */
 
         game.addVisual(chef1)
-        game.addVisual(chef2)
+    //    game.addVisual(chef2)
 
         //CHEF 1
 	    keyboard.left().onPressDo { chef1.imagen("chef8izq.png") }
     	keyboard.right().onPressDo { chef1.imagen("chef8der.png") }
 
         //CHEF 2
-	    keyboard.a().onPressDo { chef2.imagen("chef8izq.png") }
-	    keyboard.d().onPressDo { chef2.imagen("chef8der.png") }
+	/*    keyboard.a().onPressDo { chef2.imagen("chef8izq.png") }
+	    keyboard.d().onPressDo { chef2.imagen("chef8der.png") }*/
 
         //GO
         game.addVisual(go)
@@ -184,6 +188,7 @@ object nivel {
             if(chef1.objetoTransportado() == null){
                 if (mesa == mesaLechuga) {
                     //game.say(chef1, "tengo una lechuga")
+                    lechuga.cortado(false)
                     mesa.generar(chef1, lechuga)
                     
                 } else if (mesa == mesaPan) {
@@ -192,11 +197,13 @@ object nivel {
 
                 } else if (mesa == mesaCarne) {
                     //game.say(chef1, "tengo una carne")
+                    carne.cortado(false)
                     carne.cocinado(false)
                     mesa.generar(chef1, carne)
                     
                 } else if (mesa == mesaTomate) {
                     //game.say(chef1, "tengo un tomate")
+                    tomate.cortado(false)
                     mesa.generar(chef1, tomate)
                 }
             }
@@ -205,8 +212,8 @@ object nivel {
 
         //QUITAR OBJETO
         game.whenCollideDo(chef1, { elemento =>
-            if (tachos.contains(basura) && chef1.objetoTransportado() != null) {
-                game.say(chef1, "no tengo nada")
+            if (tachos.contains(elemento) && chef1.objetoTransportado() != null) {
+                //game.say(chef1, "no tengo nada")
                 game.removeVisual(chef1.objetoTransportado())
                 chef1.objetoTransportado().sinPreparar(true)
 
@@ -223,7 +230,7 @@ object nivel {
         game.whenCollideDo(chef1, { mesa =>
             if (mesasConCuchillos.contains(mesa) && (ingredientesCortables.contains(chef1.objetoTransportado()))){
                 chef1.objetoTransportado().cortar()
-                game.say(chef1, "Lo corto")
+                //game.say(chef1, "Lo corto")
             }
         })
 
@@ -252,7 +259,7 @@ object nivel {
                 (chef1.objetoTransportado() == carne && carne.cocinado())
                 ){
                     elemento.agregarIngrediente(chef1.objetoTransportado())
-                    game.say(chef1, "Lo deje en el plato!")
+                    //game.say(chef1, "Lo deje en el plato!")
                     game.removeVisual(chef1.objetoTransportado())
                     elemento.mostrarPlato()
                     chef1.objetoTransportado().sinPreparar(true)
@@ -280,7 +287,7 @@ object nivel {
             if(mesasConSarten.contains(mesa) && chef1.objetoTransportado() != null){
                 if(chef1.objetoTransportado().esCocinable()){
                     chef1.objetoTransportado().cocinar()
-                    game.say(chef1, "Lo cocino")
+                    //game.say(chef1, "Lo cocino")
                 }
             }
         })
@@ -296,10 +303,10 @@ object nivel {
         game.whenCollideDo(recepcion, {plato =>
            if(platos.contains(plato)){
                 if(generarPedido.esCorrecto(plato)){
-                    game.say(chef1,"Pedido entregado!")
+                    //game.say(chef1,"Pedido entregado!")
                     game.onTick(500, "entregando", {plato.irse()})
                     plato.irse()
-                    game.say(plato, "entregando")
+                    //game.say(plato, "entregando")
                     generarPedido.hallar(plato).entregada(true)
                     generarPedido.hallar(plato).cambiarImagen()
                     game.sound("entregaExitosa.mp3").play()
@@ -311,17 +318,18 @@ object nivel {
      //               game.schedule(10000, {mesaPlato.devolverPlato(plato)})
 
                 } else{
-                    game.say(chef1,"Pedido incorrecto!")
+                    //game.say(chef1,"Pedido incorrecto!")
                     game.sound("error2.mp3").play()
                     game.removeVisual(plato)
                     chef1.perderVidas()
                     vidas.get(chef1.vidas()).perderVida()
+                    marcadorDeDinero.restarDinero(50)
                 }
            }
         })
 
         //APOYAR PLATO
-        game.whenCollideDo(chef1, {mesa =>
+        /*game.whenCollideDo(chef1, {mesa =>
             keyboard.b().onPressDo{
                 if((mesadasSimplesFrente.contains(mesa) || mesadasSimples.contains(mesa)) && chef1.objetoTransportado() != null){
                     if(platos.contains(chef1.objetoTransportado()) ){
@@ -330,7 +338,7 @@ object nivel {
                     else {game.say(chef2,"trghewhert")}
                 }
             }
-        })
+        })*/
 
         //LAVAR PLATOS
         /*game.whenCollideDo(chef1, {mesa =>

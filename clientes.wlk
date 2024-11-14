@@ -69,8 +69,6 @@ object generarPedido{
             pedido2 = null
         } else if(pedido3 == self.hallar(plato)){
             pedido3 = null
-        } else {
-            game.say(chef2, "error")
         }
 
         /*if(pedido1 == null){
@@ -99,5 +97,10 @@ object generarPedido{
         game.removeVisual(plato3)
         game.removeVisual(plato4)
         game.removeVisual(plato5)
+        game.removeVisual(plato6)
+        game.removeVisual(plato7)
+        game.removeVisual(plato8)
+        game.removeVisual(plato9)
+        game.removeVisual(plato10)
     }
 }
