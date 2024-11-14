@@ -173,6 +173,8 @@ object recepcion {
     const property position = game.at(28,8)
 }
 
+const recepciones = [recepcion]
+
 //MESA DE LOS PLATOS
 /*object mesaPlato {
     method image() = "mesaPlatos3.png"
@@ -203,6 +205,8 @@ object basura{
     method image() = "basura.png"
     method position() = game.at(4,4)
 }
+
+const tachos = [basura]
 
 object musica {
 	const music = game.sound("musicaItaliana.mp3")

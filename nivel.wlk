@@ -140,6 +140,12 @@ object nivel {
         game.addVisual(plato3)
         game.addVisual(plato4)
         game.addVisual(plato5)
+        game.addVisual(plato6)
+        game.addVisual(plato7)
+        game.addVisual(plato8)
+        game.addVisual(plato9)
+        game.addVisual(plato10)
+    
 
         //VIDAS
         game.addVisual(vida1)
@@ -199,7 +205,7 @@ object nivel {
 
         //QUITAR OBJETO
         game.whenCollideDo(chef1, { elemento =>
-            if (elemento == basura && chef1.objetoTransportado() != null) {
+            if (tachos.contains(basura) && chef1.objetoTransportado() != null) {
                 game.say(chef1, "no tengo nada")
                 game.removeVisual(chef1.objetoTransportado())
                 chef1.objetoTransportado().sinPreparar(true)
@@ -281,7 +287,7 @@ object nivel {
 
         //ENTREGAR PLATO
         game.whenCollideDo(chef1, {mesa =>
-            if(mesa == recepcion && platos.contains(chef1.objetoTransportado())){
+            if(recepciones.contains(mesa) && platos.contains(chef1.objetoTransportado())){
                 chef1.objetoTransportado().enMovimiento(false)
                 chef1.quitarObjeto()
             }
@@ -327,11 +333,11 @@ object nivel {
         })
 
         //LAVAR PLATOS
-        game.whenCollideDo(chef1, {mesa =>
+        /*game.whenCollideDo(chef1, {mesa =>
         if(mesa == pileta && platos.contains(chef1.objetoTransportado())){
             pileta.lavar(chef1.objetoTransportado())
         }
-        })
+        })*/
 
         //GENERAR PEDIDOS
         generarPedido.mostrarPedidos()

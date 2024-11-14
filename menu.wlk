@@ -155,5 +155,20 @@ const plato4 = new Plato(imagen = "plato2.png",
 
 const plato5 = new Plato(imagen = "plato2.png",
                         position = game.at(28,4))
+                        
+const plato6 = new Plato(imagen = "plato2.png",
+                        position = game.at(28,6))
 
-const platos = [plato1, plato2, plato3, plato4, plato5]
+const plato7 = new Plato(imagen = "plato2.png",
+                        position = game.at(28,12))
+
+const plato8 = new Plato(imagen = "plato2.png",
+                        position = game.at(28,14))
+
+const plato9 = new Plato(imagen = "plato2.png",
+                        position = game.at(18,4))
+
+const plato10 = new Plato(imagen = "plato2.png",
+                        position = game.at(18,6))
+
+const platos = [plato1, plato2, plato3, plato4, plato5, plato6, plato7, plato8, plato9, plato10]

@@ -63,12 +63,11 @@ object fin{
 
     method juegoTerminado(victoria){
         if(victoria){
-            gana = true
             game.sound("ganar.mp3").play()
         } else {
-            gana = false
             game.sound("perder.mp3").play()
         }
+        gana = victoria
         self.imagen()
         musica.stop()
         game.removeTickEvent("generar")
