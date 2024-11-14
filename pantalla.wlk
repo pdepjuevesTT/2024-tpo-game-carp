@@ -48,9 +48,15 @@ object fin{
 
     method image() = imagen
 
+    method text() = "Dinero: " + marcadorDeDinero.dinero().toString() + "$" // Mostrar cantidad de dinero, es general al completar un pedido
+
+     method textColor() = paleta.rojo()
+
     method imagen() =
-        if(gana){ 
+        if(gana){
             imagen = "victoria2.png"
+            self.text()
+
         } else{
             imagen = "derrota3.png"
         }
