@@ -18,19 +18,24 @@ class ObjetoMovible{
 }
 
 object movimiento{
+
+//ESTO SE IRIA DE ACA
+
     method flechas(personaje){
         keyboard.up().onPressDo { if(personaje.position().y()==11 && personaje.position().x()>=13 && personaje.position().x()<=18){/*Nada*/} else{ personaje.move(personaje.position().up(1))} }
-	    keyboard.down().onPressDo {if(personaje.position().y()==10 && personaje.position().x()>=13 && personaje.position().x()<=18){/*Nada*/} else{ personaje.move(personaje.position().down(1))} }
-	    keyboard.left().onPressDo { if(personaje.position().x()==19 && personaje.position().y()<10 && personaje.position().y()>11){/*Nada*/} else{ personaje.move(personaje.position().left(1))}  }
+	keyboard.down().onPressDo {if(personaje.position().y()==10 && personaje.position().x()>=13 && personaje.position().x()<=18){/*Nada*/} else{ personaje.move(personaje.position().down(1))} }
+	keyboard.left().onPressDo { if(personaje.position().x()==19 && personaje.position().y()<10 && personaje.position().y()>11){/*Nada*/} else{ personaje.move(personaje.position().left(1))}  }
         keyboard.right().onPressDo { if(personaje.position().x()==13 && personaje.position().y()<10 && personaje.position().y()>11){/*Nada*/} else{ personaje.move(personaje.position().right(1))} }
     }
 
     method wasd(personaje){
         keyboard.w().onPressDo { if(personaje.position().y()==11 && personaje.position().x()>=13 && personaje.position().x()<=18){/*Nada*/} else{ personaje.move(personaje.position().up(1))}  }
-	    keyboard.s().onPressDo { if(personaje.position().y()==10 && personaje.position().x()>=13 && personaje.position().x()<=18){/*Nada*/} else{ personaje.move(personaje.position().down(1))} }
-	    keyboard.a().onPressDo { if(personaje.position().x()==19 && personaje.position().y()<10 && personaje.position().y()>11){/*Nada*/} else{ personaje.move(personaje.position().left(1))}  }
-	    keyboard.d().onPressDo { if(personaje.position().x()==13 && personaje.position().y()<10 && personaje.position().y()>11){/*Nada*/} else{ personaje.move(personaje.position().right(1))} }
+	keyboard.s().onPressDo { if(personaje.position().y()==10 && personaje.position().x()>=13 && personaje.position().x()<=18){/*Nada*/} else{ personaje.move(personaje.position().down(1))} }
+	keyboard.a().onPressDo { if(personaje.position().x()==19 && personaje.position().y()<10 && personaje.position().y()>11){/*Nada*/} else{ personaje.move(personaje.position().left(1))}  }
+	keyboard.d().onPressDo { if(personaje.position().x()==13 && personaje.position().y()<10 && personaje.position().y()>11){/*Nada*/} else{ personaje.move(personaje.position().right(1))} }
     }
+
+//HASTA ACA (Abajo esta mejorado)
 
     method seguirChef(elemento, chef){
         keyboard.up().onPressDo { elemento.move(chef.position()) }
@@ -47,21 +52,58 @@ object movimiento{
     }
 }
 
-// Para abajo deberia poder ir siempre menos entre 14<=x<=19 && y=10
-// Para la derecha deberia poder ir menos entre y<=9 && y>=12 && x=12
 
-/*class MovimientoObjetos inherits ObjetoMovible{
-    method seguirChef(chef){
-        keyboard.up().onPressDo { self.move(chef.position()) }
-	    keyboard.down().onPressDo { self.move(chef.position()) }
-	    keyboard.left().onPressDo { self.move(chef.position()) }
-	    keyboard.right().onPressDo { self.move(chef.position()) }
+//MOVIMIENTO MEJORADO
+
+/*
+    const zonasRestringidas = [
+        [0,0,3,19], 
+        [30,0,39,19], 
+        [4,0,29,1], 
+        [4,18,29,19], 
+        [14,12,19,17], 
+        [14,2,19,9]
+    ]
+
+    method estaRestringido (x,y){
+        return zonasRestringidas.any{zona ->
+            x>=zona[0] && x<=zona[2] && y>=zona[1] && y<=zona[3] 
+        }
     }
 
-    method quedarseQuieto(){
-        keyboard.up().onPressDo {self.move(self.position().right(1))}
-	    keyboard.down().onPressDo {self.move(self.position().right(1))}
-	    keyboard.left().onPressDo {self.move(self.position().right(1))}
-	    keyboard.right().onPressDo {self.move(self.position().right(1))}
+    method intentarMover(personaje,nuevaPos){
+        if(!estaRestringido(nuevaPos.x(),nuevaPos.y())){
+            personaje.move(nuevaPos)
+        }
     }
-}*/
+    
+    method flechas(personaje){
+        keyboard.up().onPressDo{
+            intentarMover(personaje,personaje.position().up(1))
+       }
+       keyboard.down().onPressDo{
+            intentarMover(personaje,personaje.position().down(1))
+       }
+       keyboard.left().onPressDo{
+            intentarMover(personaje,personaje.position().left(1))
+       }
+       keyboard.right().onPressDo{
+            intentarMover(personaje,personaje.position().right(1))
+       }
+    }
+    method wasd(personaje){
+        keyboard.w().onPressDo{
+            intentarMover(personaje,personaje.position().up(1))
+       }
+       keyboard.s().onPressDo{
+            intentarMover(personaje,personaje.position().down(1))
+       }
+       keyboard.a().onPressDo{
+            intentarMover(personaje,personaje.position().left(1))
+       }
+       keyboard.d().onPressDo{
+            intentarMover(personaje,personaje.position().right(1))
+       }
+    }
+*/
+
