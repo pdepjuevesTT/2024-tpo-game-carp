@@ -155,7 +155,7 @@ const plato4 = new Plato(imagen = "plato2.png",
 
 const plato5 = new Plato(imagen = "plato2.png",
                         position = game.at(28,4))
-                        
+
 const plato6 = new Plato(imagen = "plato2.png",
                         position = game.at(28,6))
 

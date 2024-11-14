@@ -50,8 +50,8 @@ const ingredientesCortables = [lechuga, tomate, carne]
 class Hamburguesa inherits IngredientesCortables{
     var property cocinado = false
     //var property tiempoCoccion
-    var property imagenCocinada
     //var property imagenQuemada
+    var property imagenCocinada
 
     method cocinar(){
         if(!cocinado && cortado){ //que arranque el tiempo cuando empieza a cocinar

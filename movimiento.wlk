@@ -50,17 +50,17 @@ object movimiento{
 
 
     const zonasRestringidas = [
-        [0,0,3,19], 
-        [30,0,39,19], 
-        [4,0,29,1], 
-        [4,18,29,19], 
-        [14,12,19,17], 
+        [0,0,3,19],
+        [30,0,39,19],
+        [4,0,29,1],
+        [4,18,29,19],
+        [14,12,19,17],
         [14,2,19,9]
     ]
 /*
     method estaRestringido (x,y){
         return zonasRestringidas.any{zona ->
-            x>=zona[0] && x<=zona[2] && y>=zona[1] && y<=zona[3] 
+            x>=zona[0] && x<=zona[2] && y>=zona[1] && y<=zona[3]
         }
     }
 

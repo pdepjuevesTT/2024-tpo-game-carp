@@ -156,12 +156,6 @@ object nivel {
         game.addVisual(vida2)
         game.addVisual(vida3)
 
-        //CHEFS
-
-        /* const chef1 = new Chef(position = game.at(7,8), imagen = "chef8der.png")
-        const chef2 = new Chef(position = game.at(24,8), imagen = "chef8izq.png")
-        const chefs = [chef1, chef2] */
-
         game.addVisual(chef1)
     //    game.addVisual(chef2)
 
@@ -179,7 +173,6 @@ object nivel {
 
         game.addVisual(fin)
 
-        
     }
 
     method interacciones(){
@@ -190,7 +183,7 @@ object nivel {
                     //game.say(chef1, "tengo una lechuga")
                     lechuga.cortado(false)
                     mesa.generar(chef1, lechuga)
-                    
+
                 } else if (mesa == mesaPan) {
                     //game.say(chef1, "tengo un pan")
                     mesa.generar(chef1, pan)
@@ -200,7 +193,7 @@ object nivel {
                     carne.cortado(false)
                     carne.cocinado(false)
                     mesa.generar(chef1, carne)
-                    
+
                 } else if (mesa == mesaTomate) {
                     //game.say(chef1, "tengo un tomate")
                     tomate.cortado(false)
@@ -227,16 +220,15 @@ object nivel {
         })
 
         //CORTAR INGREDIENTES
-        game.whenCollideDo(chef1, { mesa =>
-            if (mesasConCuchillos.contains(mesa) && (ingredientesCortables.contains(chef1.objetoTransportado()))){
-                chef1.objetoTransportado().cortar()
+        game.whenCollideDo(chefs.anyOne(), { mesa =>
+            if (mesasConCuchillos.contains(mesa) && (ingredientesCortables.contains(chefs.anyOne().objetoTransportado()))){
+                chefs.anyOne().objetoTransportado().cortar()
                 //game.say(chef1, "Lo corto")
             }
         })
 
 	//AGARRAR PLATO
         game.whenCollideDo(chef1, { plato =>
-            
             if(platos.contains(plato) && chef1.objetoTransportado() == null){
                 keyboard.space().onPressDo {
                     if(chef1.position() == plato.position()){
@@ -251,13 +243,9 @@ object nivel {
         })
 
         //PONER INGREDIENTES EN PLATO
-        game.whenCollideDo(chef1, { elemento => 
+        game.whenCollideDo(chef1, { elemento =>
             if(platos.contains(elemento) && chef1.tieneAlgo()){
-                if(chef1.objetoTransportado() == pan || 
-                (chef1.objetoTransportado() == tomate && tomate.cortado()) || 
-                (chef1.objetoTransportado() == lechuga && lechuga.cortado()) ||
-                (chef1.objetoTransportado() == carne && carne.cocinado())
-                ){
+                if(chef1.objetoTransportado() == pan || chef1.verificarElemento()){
                     elemento.agregarIngrediente(chef1.objetoTransportado())
                     //game.say(chef1, "Lo deje en el plato!")
                     game.removeVisual(chef1.objetoTransportado())
@@ -267,7 +255,8 @@ object nivel {
                 }
             }
         })
-        /*game.whenCollideDo(Chef1, {elemento => 
+
+        /*game.whenCollideDo(Chef1, {elemento =>
             if(platos)
         })*/
 

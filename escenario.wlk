@@ -11,20 +11,21 @@ class MesasSimples{
     var property platoApoyado = null
 
     //Apoyar plato
-    /*method apoyarPlato(platoMano){
+    method apoyarPlato(platoMano){
         if(platoApoyado != null){
             platoMano.enMovimiento(false)
             platoApoyado = platoMano
+            game.addVisual(platoApoyado)
             game.say(chef1, "Plato apoyado correctamente.")
             chef1.quitarObjeto()
         } else {
-            game.say(chef2, "Estoy ocupada")
+            game.say(chef1, "Estoy ocupada")
         }
     }
 
     method mesadaVacia(){
         return platoApoyado == null
-    }*/
+    }
 }
 
 // MESAS SIMPLES DE FRENTE
@@ -132,7 +133,7 @@ class MesaDeIngrediente {
     const imagenIngrediente
     method image() = imagen
     const property position
-    
+
     method generar(chef, ingrediente){
         chef.tomarObjeto(ingrediente)
         ingrediente.imagen(imagenIngrediente)
@@ -226,20 +227,18 @@ object marcadorDeDinero{
 
      var property  position = game.at(1,18)
 
-     method agregarDinero(monto){ //Usar post hacer un pedido bien
-          dinero += monto
+     method agregarDinero(monto){
           if(dinero >= 500){
             //game.say(chef2, "ganamos")
             fin.juegoTerminado(true)
           }
      }
 
-     method restarDinero(monto){ //Usar post hacer un pedido mal
+     method restarDinero(monto){
           dinero -= monto
      }
 
-     method text() = "Dinero: " + dinero.toString() + "$" // Mostrar cantidad de dinero, es general al completar un pedido
-
+     method text() = "Dinero: " + dinero.toString() + "$"
      method textColor() = paleta.rojo()
 }
 

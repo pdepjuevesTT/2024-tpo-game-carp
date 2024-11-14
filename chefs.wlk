@@ -3,6 +3,7 @@ import wollok.game.*
 import nivel.*
 import movimiento.*
 import pantalla.*
+import ingredientes.*
 
 class Chef inherits ObjetoMovible{
     var property dinero = 0
@@ -14,6 +15,17 @@ class Chef inherits ObjetoMovible{
             objetoTransportado = _objeto
         }
    }
+
+   method verificarElemento() =
+     ingredientesCortables.any({ingrediente => ingrediente == objetoTransportado && ingrediente.cortado()})
+
+/*    method apoyarObjeto(_objeto){
+     if(objetoTransportado != null){
+            objetoTransportado = null
+            _objeto.position(game.at(5,5))
+            game.addVisual(_objeto)
+        }
+   } */
 
    method quitarObjeto() {
         objetoTransportado = null
@@ -30,13 +42,7 @@ class Chef inherits ObjetoMovible{
       }
    }
 
-     /*method pedidoCompletado(plato){
-          if(pedido.completo(self.pedidos.first())){
-               //Si esta completo?
-          }else{
-               self.pedidos.remove(plato)
-          }
-     }*/
+
 }
 
 const chef1 = new Chef(position = game.at(7,8), imagen = "chef8der.png")
