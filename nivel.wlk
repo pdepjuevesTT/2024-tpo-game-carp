@@ -208,11 +208,10 @@ object nivel {
             if (tachos.contains(elemento) && chef1.objetoTransportado() != null) {
                 //game.say(chef1, "no tengo nada")
                 game.removeVisual(chef1.objetoTransportado())
-                chef1.objetoTransportado().sinPreparar(true)
 
-                //chef1.objetoTransportado().cocinado(false)
-                if (chef1.objetoTransportado().esCortable()){
-                    chef1.objetoTransportado().cortado(false)
+               if(platos.contains(chef1.objetoTransportado())){
+                    chef1.objetoTransportado().position(game.at(37,0))
+                    chef1.objetoTransportado().enMovimiento(false)
                 }
                 chef1.quitarObjeto()
 
@@ -309,6 +308,7 @@ object nivel {
                 } else{
                     //game.say(chef1,"Pedido incorrecto!")
                     game.sound("error2.mp3").play()
+		    plato.position(game.at(37,0))
                     game.removeVisual(plato)
                     chef1.perderVidas()
                     vidas.get(chef1.vidas()).perderVida()
